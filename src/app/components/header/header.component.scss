@@ -1,0 +1,31 @@
+.header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem;
+  }
+
+  .header-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333333;
+  }
+
+  .header-title:hover {
+    cursor: pointer;
+  }
+}
+
+.navigation {
+    display: flex;
+}
