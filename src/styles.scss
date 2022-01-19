@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material'as mat;
+@include mat.core();
+$wanted_criminals-primary: mat.define-palette(mat.$indigo-palette);
+$wanted_criminals-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$wanted_criminals-warn: mat.define-palette(mat.$red-palette);
+$wanted_criminals-theme: mat.define-light-theme((color: (primary: $wanted_criminals-primary,
+      accent: $wanted_criminals-accent,
+      warn: $wanted_criminals-warn,
+    )));
+@include mat.all-component-themes($wanted_criminals-theme);
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//Custom styles
+$margin-half: 0.5rem;
+
+//Profie pic
+@mixin img-profile-size {
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-self: center;
+}
+
+//Background
+$login-background: linear-gradient(45deg,
+  hsl(240deg 100% 20%) 0%,
+  hsl(280deg 100% 19%) 34%,
+  hsl(305deg 100% 20%) 57%,
+  hsl(321deg 100% 25%) 74%,
+  hsl(331deg 100% 29%) 84%,
+  hsl(339deg 100% 33%) 90%,
+  hsl(345deg 100% 35%) 94%,
+  hsl(0deg 72% 43%) 100%);
+
+$prime-font: 'Fjalla One',
+sans-serif;

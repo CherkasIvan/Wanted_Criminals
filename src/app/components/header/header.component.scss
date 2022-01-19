@@ -1,5 +1,6 @@
 .header {
-  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  background: blueviolet;
   backdrop-filter: blur(10px);
   opacity: 1;
   position: fixed;
@@ -11,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 1rem;
+    margin: .4rem 1rem;
   }
 
   .header-title {
@@ -27,5 +28,6 @@
 }
 
 .navigation {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
 }

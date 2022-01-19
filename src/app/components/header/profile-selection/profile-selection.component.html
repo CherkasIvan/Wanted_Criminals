@@ -1,5 +1,11 @@
 <div class="person">
   <div class="person-info">
-    <img src="#" alt="#" class="user-photo">
+    <img src="../../../../assets/avatar.jpg" alt="avatar" class="user-photo">
+    <button class="profile-menu" mat-button [matMenuTriggerFor]="belowMenu">Below</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item class="btn-primary">Item 1</button>
+      <button mat-menu-item class="btn-primary">Item 2</button>
+      <span class="material-icons">logout</span>
+    </mat-menu>
   </div>
 </div>

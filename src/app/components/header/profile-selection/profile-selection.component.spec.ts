@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 import { ProfileSelectionComponent } from './profile-selection.component';
 
@@ -8,6 +10,7 @@ describe('ProfileSelectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[ MatMenuModule ],
       declarations: [ ProfileSelectionComponent ]
     })
     .compileComponents();
