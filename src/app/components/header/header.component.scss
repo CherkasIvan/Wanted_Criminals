@@ -1,12 +1,12 @@
 .header {
   backdrop-filter: blur(10px);
-  background: blueviolet;
+  background: inherit;
   backdrop-filter: blur(10px);
   opacity: 1;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 1000;
 
   .header-container {
     display: flex;
@@ -19,7 +19,7 @@
     font-size: 1.3rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #333333;
+    color: #FFFFFF;
   }
 
   .header-title:hover {
