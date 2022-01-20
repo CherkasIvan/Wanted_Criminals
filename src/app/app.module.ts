@@ -24,7 +24,6 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
     LoginComponent,
     MainComponent,
     SidenavComponent,
-
   ],
   imports: [
     FormsModule,
