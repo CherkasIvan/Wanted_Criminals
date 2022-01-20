@@ -1,14 +1,7 @@
 <div class="person">
-  <div class="person-info">
-    <!-- <img src="../../../../assets/img/avatar.jpg" alt="avatar" class="user-photo"> -->
-    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two"
-        (click)="openModal('custom-modal-1')">Login</a></div>
-        <!-- <p>{{bodyText}}</p> -->
+  <div class="person_info">
+    <div class="wrap">
+      <button class="wrap_button">Submit</button>
+    </div>
   </div>
 </div>
-
-<fw-login-modal id="custom-modal-1">
-  <h1>A Custom Modal!</h1>
-  <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>
-  <button (click)="closeModal('custom-modal-1');">Close</button>
-</fw-login-modal>

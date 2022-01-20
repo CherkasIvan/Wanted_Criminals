@@ -8,26 +8,28 @@
   width: 100%;
   z-index: 1000;
 
-  .header-container {
+  &_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: .4rem 1rem;
-  }
+    margin: .9rem 1.4rem;
 
-  .header-title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #FFFFFF;
-  }
+    &_title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
 
-  .header-title:hover {
-    cursor: pointer;
+    &_title:hover {
+      cursor: pointer;
+    }
+
+    &_navigation {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 
-.navigation {
-  display: flex;
-  justify-content: space-between;
-}
+
