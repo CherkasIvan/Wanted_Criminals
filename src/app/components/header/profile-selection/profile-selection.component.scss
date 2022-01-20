@@ -1,168 +1,94 @@
-@import '../../../../styles.scss';
+@import '../../../../assets//constants//constants.scss';
+
+body {
+  height: 100%;
+  color: #FFF;
+}
 
 .person {
   display: flex;
   align-items: center;
   margin: 0 $margin-half 0 1.5rem;
 
-  .person-info {
+  &_info {
     display: flex;
     justify-content: space-around;
-
-    .user-photo {
-      @include img-profile-size;
-      object-fit: cover;
-    }
-
-    .user-photo:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-
-    .profile-menu {
-      margin: 0.2rem 0.2rem 0 0.2rem;
-    }
   }
 }
 
 
-body {
-  padding-top: 50px;
-  padding-bottom: 20px;
-  font-family: $prime-font;
-  background: #353535;
-  color: #FFF;
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &_button {
+    width: 160px;
+    height: 40px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #FFF;
+    background: inherit;
+    border: 1px solid #FFF;
+    box-shadow: 6px 6px 12px rgba(81, 81, 81, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    position: relative;
+  }
+
+  &_button:hover,
+  &_button:focus {
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    transform: scale(1.2);
+  }
 }
-.jumbotron h1 {
-  color: #353535;
+
+button::before {
+  transform: translate(-50%, -50%);
+  transition: all .3s ease-in-out 0s;
 }
-span.icon {
-  margin: 0 5px;
-  color: #D64541;
+
+button:hover::before,
+button:focus::before {
+  opacity: 1;
 }
-h2 {
-  color: #BDC3C7
-}
-.mrng-60-top {
-  margin-top: 60px;
-}
-/* Global Button Styles */
-a.animated-button:link, a.animated-button:visited {
-  position: relative;
-  display: block;
-  margin: auto 0;
-  padding: 14px 15px;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  letter-spacing: .08em;
-  border-radius: 0;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-}
-a.animated-button:link:after, a.animated-button:visited:after {
-  content: "";
+
+button::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 3px solid #FFF;
   position: absolute;
-  height: 0%;
-  left: 50%;
+  z-index: -1000;
   top: 50%;
-  width: 150%;
-  z-index: -1;
-  -webkit-transition: all 0.75s ease 0s;
-  -moz-transition: all 0.75s ease 0s;
-  -o-transition: all 0.75s ease 0s;
-  transition: all 0.75s ease 0s;
-}
-a.animated-button:link:hover, a.animated-button:visited:hover {
-  color: #FFF;
-  text-shadow: none;
-}
-a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
-  height: 450%;
-}
-a.animated-button:link, a.animated-button:visited {
-  position: relative;
-  display: block;
-  margin: 30px auto 0;
-  padding: 14px 15px;
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 0;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  letter-spacing: .08em;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-}
-a.animated-button.victoria-one {
-  border: 2px solid #D24D57;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
 }
 
-a.animated-button.victoria-one:after {
-  background: #D24D57;
-  -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-  -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-  transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+button:hover::after,
+button:focus::after {
+  animation: none;
+  display: none;
 }
 
-a.animated-button.victoria-two {
-  border: 2px solid #D24D57;
-}
+@keyframes ring {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
 
-a.animated-button.victoria-two:after {
-  background: #D24D57;
-  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  transform: translateX(-50%) translateY(-50%) rotate(25deg);
-}
-
-a.animated-button.victoria-three {
-  border: 2px solid #D24D57;
-}
-
-a.animated-button.victoria-three:after {
-  background: #D24D57;
-  opacity: .5;
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-
-a.animated-button.victoria-three:hover:after {
-  height: 140%;
-  opacity: 1;
-}
-
-a.animated-button.victoria-four {
-  border: 2px solid #D24D57;
-}
-
-a.animated-button.victoria-four:after {
-  background: #D24D57;
-  opacity: .5;
-  -moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
-  -ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
-  -webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
-  transform: translateY(-50%) translateX(-50%) rotate(90deg);
-}
-
-a.animated-button.victoria-four:hover:after {
-  opacity: 1;
-  height: 600% !important;
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
 }
