@@ -49,11 +49,13 @@ body {
   transition-delay: 0;
 }
 
-span {
+a {
   transition: color 1s ease;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.menu-item:hover span {
+.menu-item:hover a {
   color: #ff0000;
 }
 
