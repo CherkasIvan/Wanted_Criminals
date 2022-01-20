@@ -1,6 +1,6 @@
 {
-    "users": [
-      {
+  "userList": {
+    "users": [{
         "login": "Oleg",
         "password": "4444"
       },
@@ -13,33 +13,32 @@
         "password": "6666"
       }
     ],
-    "admin": [
-        {
-          "login": "Ivan",
-          "password": "1111"
-        },
-        {
-          "login": "Pavel",
-          "password": "2222"
-        },
-        {
-          "login": "Artur",
-          "password": "33333"
-        }
-      ],
-      "guest": [
-        {
-          "login": "Kirill",
-          "password": "7777"
-        },
-        {
-          "login": "Veronika",
-          "password": "8888"
-        },
-        {
-          "login": "Alina",
-          "password": "9999"
-        }
-      ]
+    "admin": [{
+        "login": "Ivan",
+        "password": "1111"
+      },
+      {
+        "login": "Pavel",
+        "password": "2222"
+      },
+      {
+        "login": "Artur",
+        "password": "33333"
+      }
+    ],
+    "guest": [{
+        "login": "Kirill",
+        "password": "7777"
+      },
+      {
+        "login": "Veronika",
+        "password": "8888"
+      },
+      {
+        "login": "Alina",
+        "password": "9999"
+      }
+    ]
   }
-  
+
+}
