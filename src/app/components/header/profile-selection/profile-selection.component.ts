@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'fw-profile-selection',
@@ -8,6 +9,5 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileSelectionComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContentComponent } from './pages/content/content.component';
 import { MainComponent } from './pages/main/main.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -8,22 +10,19 @@ const routes: Routes = [
     component: MainComponent,
   },
   {
-    path: 'movies',
-    component: MainComponent,
+    path: 'content',
+    component: ContentComponent,
   },
   {
-    path: 'series',
-    component: MainComponent,
+    path: 'settings',
+    component: SettingsComponent,
   },
-  {
-    path: 'music',
-    component: MainComponent,
-  },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
