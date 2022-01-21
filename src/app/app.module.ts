@@ -7,23 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MainComponent } from './pages/main/main.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProfileSelectionComponent } from './components/header/profile-selection/profile-selection.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { ContentComponent } from './pages/content/content.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { ContentPageComponent } from './pages/content-page/content-page.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainPageComponent,
     HeaderComponent,
     ProfileSelectionComponent,
-    MainComponent,
     SidenavComponent,
-    SettingsComponent,
-    ContentComponent,
     LoginModalComponent,
   ],
   imports: [

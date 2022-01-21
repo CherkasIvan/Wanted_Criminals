@@ -17,7 +17,7 @@ export class LoginModalComponent implements OnInit {
   @Output() public modal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   submit(): void {
-    console.warn('Form submitted: ', this.profileForm.value);
+    console.warn('Form submitted: ', JSON.stringify(this.profileForm.value));
   }
 
   cancel(): void {
@@ -25,3 +25,4 @@ export class LoginModalComponent implements OnInit {
   }
   ngOnInit(): void {}
 }
+

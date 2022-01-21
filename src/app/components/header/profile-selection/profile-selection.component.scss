@@ -23,6 +23,12 @@ body {
   align-items: center;
   justify-content: center;
 
+  &_time {
+    margin-right: 1.5rem;
+    color: #FFF;
+    font-size: 1em;
+  }
+
   &_button {
     width: 160px;
     height: 40px;
