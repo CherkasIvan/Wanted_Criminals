@@ -9,19 +9,19 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
   styleUrls: ['./profile-selection.component.scss'],
 })
 export class ProfileSelectionComponent implements OnInit {
+  show = true;
   public showModal: boolean = false;
-  clock = Date.now();
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.clock = Date.now();
-    }, 1000);
   }
 
   openModal(): void {
-    const dialogRef = this.dialog.open(LoginModalComponent);
+    const dialogRef = this.dialog.open(LoginModalComponent, {
+      panelClass: 'custom-dialog-container',
+    });
+    this.show = false;
     this.showModal = true;
   }
 }

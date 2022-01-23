@@ -1,8 +1,7 @@
 <div class="person">
   <div class="person_info">
     <div class="wrap">
-      <span class="wrap_time">{{clock  | date:'dd-MM HH:mm:ss'}}</span>
-      <button class="wrap_button" (click)="openModal()">Login</button>
+      <button class="wrap_button" (click)="openModal()">{{ show == true ? 'Login' : 'Logout' }}</button>
     </div>
   </div>
 </div>
