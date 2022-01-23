@@ -28,8 +28,13 @@
     &_navigation {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      &_time {
+        margin-right: 1.5rem;
+        color: #FFF;
+        font-size: 1rem;
+      }
     }
   }
 }
-
-
