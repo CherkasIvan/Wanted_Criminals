@@ -13,6 +13,7 @@
   border-radius: 25px;
 
 
+
   &_contant {
     color: #fff;
     font-size: 1rem;
@@ -62,4 +63,13 @@
       }
     }
   }
+}
+
+.alert {
+  color: #ff0000;
+}
+
+::ng-deep mat-dialog-container,
+.mat-dialog-container {
+  padding: 0;
 }

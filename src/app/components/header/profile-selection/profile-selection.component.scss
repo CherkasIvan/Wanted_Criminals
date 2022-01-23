@@ -45,6 +45,7 @@ body {
     text-align: center;
     outline: none;
     position: relative;
+    z-index:  30000;
   }
 
   &_button:hover,

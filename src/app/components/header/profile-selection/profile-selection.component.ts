@@ -9,6 +9,7 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
   styleUrls: ['./profile-selection.component.scss'],
 })
 export class ProfileSelectionComponent implements OnInit {
+  show = true;
   public showModal: boolean = false;
   clock = Date.now();
 
@@ -21,7 +22,9 @@ export class ProfileSelectionComponent implements OnInit {
   }
 
   openModal(): void {
-    const dialogRef = this.dialog.open(LoginModalComponent);
+    const dialogRef = this.dialog.open(LoginModalComponent, {
+      panelClass: 'custom-dialog-container',
+    });
     this.showModal = true;
   }
 }
