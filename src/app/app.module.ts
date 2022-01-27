@@ -8,11 +8,11 @@ import { NotFoundPageModule } from './pages/not-found-page/not-found-page.module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ProfileSelectionComponent } from './components/header/profile-selection/profile-selection.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ProfileSelectionModule } from './components/header/profile-selection/profile-selection.module';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 
@@ -20,15 +20,15 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
   declarations: [
     AppComponent,
     MainPageComponent,
-    HeaderComponent,
-    ProfileSelectionComponent,
-    SidenavComponent,
     LoginModalComponent,
+    SidenavComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ProfileSelectionModule,
     RouterModule,
     BrowserAnimationsModule,
     SettingsPageModule,
