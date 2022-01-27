@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ClockService } from '../../services/clock-service/clock.service';
 
 @Component({
   selector: 'fw-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  clock = Date.now();
-  constructor() { }
-
-  ngOnInit(): void {
-    setInterval(() => {
-      this.clock = Date.now();
-    }, 1000);
+export class HeaderComponent {
+  clock: any;
+  constructor(private _clockService: ClockService) {
+    this._clockService.time.subscribe(
+      (now: Date) => (this.clock = now.toUTCString())
+    );
   }
-
 }

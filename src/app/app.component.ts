@@ -7,5 +7,5 @@ import { MatSliderModule } from '@angular/material/slider';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'wanted_criminals';
+  title: string = 'wanted_criminals';
 }

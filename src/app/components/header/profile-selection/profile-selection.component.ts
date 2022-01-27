@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { LoginModalComponent } from '../../login-modal/login-modal.component';
@@ -8,14 +8,11 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
   templateUrl: './profile-selection.component.html',
   styleUrls: ['./profile-selection.component.scss'],
 })
-export class ProfileSelectionComponent implements OnInit {
-  show = true;
+export class ProfileSelectionComponent {
+  public show:boolean = true;
   public showModal: boolean = false;
 
   constructor(public dialog: MatDialog) {}
-
-  ngOnInit(): void {
-  }
 
   openModal(): void {
     const dialogRef = this.dialog.open(LoginModalComponent, {
