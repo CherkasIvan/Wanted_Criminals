@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { LoginModalComponent } from './login-modal.component';
 
+import { AppMaterialModule } from '../../app-material.module';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, AppMaterialModule],
   declarations: [LoginModalComponent],
   exports: [LoginModalComponent],
 })

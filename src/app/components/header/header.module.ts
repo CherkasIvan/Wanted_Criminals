@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './header.component';
 
+import { ProfileSelectionModule } from './profile-selection/profile-selection.module';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, ProfileSelectionModule],
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
 })

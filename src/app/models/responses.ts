@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export interface Response {
-  user: Array<User>;
+  user: User[];
 }
