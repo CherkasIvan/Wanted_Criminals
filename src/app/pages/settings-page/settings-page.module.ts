@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SettingsPageRoutingModule } from './settings-page-routing.module';
-import { SettingsPageComponent } from './settings-page.component';
 
+import { SettingsPageComponent } from './settings-page.component';
 
 @NgModule({
   declarations: [

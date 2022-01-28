@@ -1,6 +1,6 @@
 <div class="modal_container" mat-dialog-container>
 
-  <form [formGroup]="profileForm" class="modal_container_contant" (ngSubmit)="submit()" novalidate>
+  <form [formGroup]="profileForm" class="modal_container_contant" (ngSubmit)="login()" novalidate>
 
     <label for="email">Enter your E-mail:</label>
     <input type="text" formControlName="email" class="modal_email" id="email" placeholder="E-mail" required
@@ -21,7 +21,8 @@
     </div>
 
     <div class="buttons_container">
-      <button class="buttons_container_login" type="submit" [disabled]="!profileForm.valid">Login</button>
-      <button class="buttons_container_cansel" (click)="cancelModal()">Cancel</button></div>
+      <button class="buttons_container_login" type="submit" (ngSubmit)="login()"
+        [disabled]="!profileForm.valid">Login</button>
+      <button [mat-dialog-close] class="buttons_container_cansel" (click)="closeModal()">Cancel</button></div>
   </form>
 </div>
