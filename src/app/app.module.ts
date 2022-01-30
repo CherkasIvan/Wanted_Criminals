@@ -19,6 +19,8 @@ import { HeaderModule } from './components/header/header.module';
 
 import { AppComponent } from './app.component';
 
+import { AuthGuard } from './guards/auth-guard/auth.guard';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -37,7 +39,7 @@ import { AppComponent } from './app.component';
     NotFoundPageModule,
     AppMaterialModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
