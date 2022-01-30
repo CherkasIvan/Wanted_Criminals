@@ -1,12 +1,12 @@
 {
   "userList": [{
-    "email": "distor6on@yandex.ru",
-    "password": "kpo0uq34t",
-    "role": "admin"
-  }, {
     "email": "andrii.khaulin@gmail.com",
     "password": "0j03140j3213",
     "role": "guest"
+  }, {
+    "email": "distor6on@yandex.ru",
+    "password": "kpo0uq34t",
+    "role": "admin"
   }, {
     "email": "liza.pavliv@gmail.com",
     "password": "a5Adj7O7fwef",

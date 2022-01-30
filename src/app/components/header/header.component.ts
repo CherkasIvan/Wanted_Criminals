@@ -10,6 +10,7 @@ import { ModalService } from '../../services/modal.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
+  public isShowModal$ = this._modalService.isShowModal$;
   clock: any;
   constructor(
     private _clockService: ClockService,
@@ -20,14 +21,13 @@ export class HeaderComponent implements OnInit {
     this._clockService.time.subscribe(
       (now: Date) => (this.clock = now.toUTCString())
     );
-    this._modalService.isShowModal = true;
   }
 
   public openModal(): void {
-    this._modalService.isShowModal = true;
+    this.isShowModal$.next(true);
   }
 
   public closeModal(): void {
-    this._modalService.isShowModal = false;
+    this.isShowModal$.next(false);
   }
 }

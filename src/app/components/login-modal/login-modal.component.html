@@ -4,7 +4,7 @@
 
     <label for="email">Enter your E-mail:</label>
     <input type="text" formControlName="email" class="modal_email" id="email" placeholder="E-mail" required
-      autocomplete="off">
+      autocomplete="false">
     <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
       <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
       <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
@@ -13,7 +13,7 @@
 
     <label for="password">Enter your password:</label>
     <input type="password" formControlName="password" class="modal_password" id="password" placeholder="Password"
-      required autocomplete="off">
+      required autocomplete="false">
     <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
       <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
       <div *ngIf="f['password'].errors && f['password'].errors['minLength']">Min length of this field is 8.</div>

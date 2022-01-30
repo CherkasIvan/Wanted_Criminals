@@ -28,19 +28,16 @@ import { LoginModalModule } from './login-modal.module';
   selector: 'fw-login-modal',
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.scss'],
-  providers: [ModalService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginModalComponent implements OnInit, OnDestroy {
-  private users: User[] = [];
+  public users: User[] = [];
   public aSub: Subscription = new Subscription();
-  public submited: boolean = false;
   public profileForm!: FormGroup;
+
   public get f() {
     return this.profileForm.controls;
   }
-
-  @Output() public modal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     public dialogRef: MatDialogRef<LoginModalComponent>,
@@ -63,7 +60,6 @@ export class LoginModalComponent implements OnInit, OnDestroy {
         Validators.maxLength(16),
       ]),
     });
-    this.f;
   }
 
   public closeModal(): void {
@@ -81,17 +77,15 @@ export class LoginModalComponent implements OnInit, OnDestroy {
     this.aSub = this.authService
       .login(this.profileForm.value.email, this.profileForm.value.password)
       .subscribe(
-        (data: any) => {
-          this.users = data['userList'];
+        () => {
+          this.dialogRef.close();
         },
-        (error: string) => {
+
+        (error) => {
           console.warn(error);
           this.profileForm.enable();
         }
       );
-    this.router.navigate(['/main-page']);
-    console.log(this.profileForm.value);
-    this.dialogRef.close();
   }
 
   ngOnDestroy(): void {
@@ -100,22 +94,3 @@ export class LoginModalComponent implements OnInit, OnDestroy {
     }
   }
 }
-
-
-  //
-  // public login(): void {
-
-  //   this.aSub = this.authService
-  //     .login(this.profileForm.value.email, this.profileForm.value.password)
-  //     .subscribe(
-  //       () => {
-  //         this.router.navigate(['/main-page']);
-  //         this.modalService.isShowModal = false;
-  //       },
-
-  //       (error) => {
-  //         console.warn(error);
-  //         this.profileForm.enable();
-  //       }
-  //     );
-  // }
