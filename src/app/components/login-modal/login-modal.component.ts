@@ -1,4 +1,10 @@
 import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
+import {
   Component,
   EventEmitter,
   Output,
@@ -7,21 +13,17 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormGroup,
-  FormControl,
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 
-import { User } from '../../models/user';
+import { Subscription } from 'rxjs';
 
 import { ModalService } from '../../services/modal.service';
 import { AuthService } from '../../services/auth.service';
-import { Subscription } from 'rxjs';
+
+import { User } from '../../models/user';
+
 import { LoginModalModule } from './login-modal.module';
 
 @Component({

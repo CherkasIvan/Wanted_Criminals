@@ -1,4 +1,6 @@
 <fw-header></fw-header>
-<main>
-  <router-outlet></router-outlet>
-</main>
+<div [@routeAnimations]="animationRoute(outletInfo)">
+  <router-outlet #outletInfo="outlet"></router-outlet>
+</div>
+
+<!--  -->

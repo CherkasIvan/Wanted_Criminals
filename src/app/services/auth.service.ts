@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user';
-
-import { Response } from '../models/responses';
-import { map, Observable, pipe } from 'rxjs';
 import { Router } from '@angular/router';
+
+import { map, Observable, pipe } from 'rxjs';
+
+import { User } from '../models/user';
+import { Response } from '../models/responses';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -59,7 +60,6 @@ export class AuthService {
           return this.disAuth();
         });
         this.isloggedIn;
-        console.log(this.isloggedIn);
         return usersList;
       })
     );
