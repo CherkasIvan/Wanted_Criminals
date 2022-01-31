@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LoginModalComponent } from './login-modal.component';
-
 import { AppMaterialModule } from '../../app-material.module';
+
+import { LoginModalComponent } from './login-modal.component';
 
 @NgModule({
   imports: [CommonModule, AppMaterialModule],

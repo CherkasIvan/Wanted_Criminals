@@ -1,8 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { LoginModalComponent } from '../../login-modal/login-modal.component';
 import { ModalService } from '../../../services/modal.service';
+
+import { LoginModalComponent } from '../../login-modal/login-modal.component';
 
 @Component({
   selector: 'fw-profile-selection',

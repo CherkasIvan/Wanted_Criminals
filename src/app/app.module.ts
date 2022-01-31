@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppMaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SettingsPageModule } from './pages/settings-page/settings-page.module';
 import { ContentPageModule } from './pages/content-page/content-page.module';
@@ -25,6 +25,7 @@ import { AuthGuard } from './guards/auth-guard/auth.guard';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     MainPageModule,
@@ -32,7 +33,6 @@ import { AuthGuard } from './guards/auth-guard/auth.guard';
     LoginModalModule,
     ProfileSelectionModule,
     RouterModule,
-    BrowserAnimationsModule,
     SettingsPageModule,
     HeaderModule,
     ContentPageModule,

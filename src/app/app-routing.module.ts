@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanLoad, CanActivate } from '@angular/router';
+
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+
 import { AuthGuard } from './guards/auth-guard/auth.guard';
 
 const routes: Routes = [
