@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '~normalize.css';
+
+span,
+a,
+label {
+  font-family: 'Fjalla One',
+    sans-serif;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0 !important;
+}

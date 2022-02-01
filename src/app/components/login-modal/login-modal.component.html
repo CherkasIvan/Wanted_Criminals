@@ -1,0 +1,28 @@
+<div class="modal_container" mat-dialog-container>
+
+  <form [formGroup]="profileForm" class="modal_container_contant" (ngSubmit)="login()" novalidate>
+
+    <label for="email">Enter your E-mail:</label>
+    <input type="text" formControlName="email" class="modal_email" id="email" placeholder="E-mail" required
+      autocomplete="false">
+    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+      <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+      <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+      <div *ngIf="f['email'].errors && f['email'].errors['minLength']">Min length of this field is 8.</div>
+    </div>
+
+    <label for="password">Enter your password:</label>
+    <input type="password" formControlName="password" class="modal_password" id="password" placeholder="Password"
+      required autocomplete="false">
+    <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+      <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+      <div *ngIf="f['password'].errors && f['password'].errors['minLength']">Min length of this field is 8.</div>
+      <div *ngIf="f['password'].errors && f['password'].errors['maxLength']">Max length of this field is 16.</div>
+    </div>
+
+    <div class="buttons_container">
+      <button class="buttons_container_login" type="submit" (ngSubmit)="login()"
+        [disabled]="!profileForm.valid">Login</button>
+      <button [mat-dialog-close] class="buttons_container_cansel" (click)="closeModal()">Cancel</button></div>
+  </form>
+</div>

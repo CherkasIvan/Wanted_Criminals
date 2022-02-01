@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,AAAC,CACP,MAAM,CAAE,KAAK,CACb,iBAAiB,CAAE,SAAS,CAC7B",
+    "sources": [
+        "../src/app/pages/not-found-page/not-found-page.component.scss"
+    ],
+    "names": [],
+    "file": "not-found-page.component.min.css"
+}

@@ -1,0 +1,79 @@
+@import '../../../assets/constants/constants.scss';
+
+body {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 1.5rem;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.sidenav_menu {
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  pointer-events: none;
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  z-index: 100;
+  transition: 1s;
+  font-size: 1.1rem;
+
+  &_label {
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: all;
+  }
+
+  &_item {
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+    top: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+    transition-delay: 0;
+
+    a {
+      transition: color 1s ease;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &_item:hover a {
+    color: #ff0000;
+  }
+
+  &_item {
+    @include transition-delay_item;
+  }
+}
+
+.sidenav_menu:hover .sidenav_menu_item {
+  @include transition-delay_item;
+}
+
+.sidenav_menu:hover {
+  pointer-events: all;
+  transform: scale(1.2);
+  transition: 1s;
+}
+
+
+.sidenav_menu:hover .spacer:before {
+  width: 100%;
+  transition-delay: 0s;
+}
+
+.sidenav_menu:hover .sidenav_menu_item {
+  opacity: 1;
+  top: 0px;
+}

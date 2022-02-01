@@ -1,0 +1,93 @@
+@import '../../../../assets//constants//constants.scss';
+
+body {
+  height: 100%;
+  color: #FFF;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  margin: 0 $margin-half 0 1.5rem;
+
+  &_info {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &_button {
+    width: 160px;
+    height: 40px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #FFF;
+    background: inherit;
+    border: 1px solid #FFF;
+    box-shadow: 6px 6px 12px rgba(81, 81, 81, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    position: relative;
+    z-index:  30000;
+  }
+
+  &_button:hover {
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    transform: scale(1.2);
+  }
+}
+
+button::before {
+  transform: translate(-50%, -50%);
+  transition: all .3s ease-in-out 0s;
+}
+
+button:hover::before,
+button:focus::before {
+  opacity: 1;
+}
+
+button::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 3px solid #FFF;
+  position: absolute;
+  z-index: -1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+button:hover::after,
+button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}

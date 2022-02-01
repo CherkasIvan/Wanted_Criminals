@@ -1,9 +1,11 @@
 <header class="header">
-  <div class="header-container">
-    <div class="header-title">Wanted criminals</div>
-    <!-- <div class='header-title-adaptive'>WC</div> -->
-    <nav class="navigation">
-        <fw-profile-selection></fw-profile-selection>
+  <div class="header_container">
+    <div class="header_container_title">
+      <span>wanted criminals</span>
+    </div>
+    <nav class="header_container_navigation">
+      <span class="header_container_navigation_time">{{clock | async}}</span>
+      <fw-profile-selection *ngIf="isShowModal$ | async"></fw-profile-selection>
     </nav>
   </div>
 </header>

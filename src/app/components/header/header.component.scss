@@ -1,31 +1,40 @@
 .header {
-  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  background: inherit;
   backdrop-filter: blur(10px);
   opacity: 1;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 1000;
 
-  .header-container {
+  &_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 1rem;
-  }
+    margin: .9rem 1.4rem;
 
-  .header-title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #333333;
-  }
+    &_title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
 
-  .header-title:hover {
-    cursor: pointer;
-  }
-}
+    &_title:hover {
+      cursor: pointer;
+    }
 
-.navigation {
-    display: flex;
+    &_navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &_time {
+        margin-right: 1.5rem;
+        color: #FFF;
+        font-size: 1rem;
+      }
+    }
+  }
 }
