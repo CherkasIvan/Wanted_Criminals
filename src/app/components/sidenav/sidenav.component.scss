@@ -1,3 +1,5 @@
+@import '../../../assets/constants/constants.scss';
+
 body {
   color: rgba(255, 255, 255, 0.7);
   margin: 1.5rem;
@@ -50,45 +52,13 @@ body {
     color: #ff0000;
   }
 
-  &_item:nth-child(1) {
-    transition-delay: 0.45s;
+  &_item {
+    @include transition-delay_item;
   }
+}
 
-  &_item:nth-child(2) {
-    transition-delay: 0.4s;
-  }
-
-  &_item:nth-child(3) {
-    transition-delay: 0.35s;
-  }
-
-  &_item:nth-child(4) {
-    transition-delay: 0.3s;
-  }
-
-  &_item:nth-child(5) {
-    transition-delay: 0.25s;
-  }
-
-  &_item:nth-child(6) {
-    transition-delay: 0.2s;
-  }
-
-  &_item:nth-child(7) {
-    transition-delay: 0.15s;
-  }
-
-  &_item:nth-child(8) {
-    transition-delay: 0.1s;
-  }
-
-  &_item:nth-child(9) {
-    transition-delay: 0.05s;
-  }
-
-  &_item:nth-child(10) {
-    transition-delay: 0s;
-  }
+.sidenav_menu:hover .sidenav_menu_item {
+  @include transition-delay_item;
 }
 
 .sidenav_menu:hover {
@@ -106,45 +76,4 @@ body {
 .sidenav_menu:hover .sidenav_menu_item {
   opacity: 1;
   top: 0px;
-}
-
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(1) {
-  transition-delay: 0.25s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(2) {
-  transition-delay: 0.3s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(3) {
-  transition-delay: 0.35s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(4) {
-  transition-delay: 0.4s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(5) {
-  transition-delay: 0.45s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(6) {
-  transition-delay: 0.5s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(7) {
-  transition-delay: 0.55s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(8) {
-  transition-delay: 0.6s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(9) {
-  transition-delay: 0.65s;
-}
-
-.sidenav_menu:hover .sidenav_menu_item:nth-child(10) {
-  transition-delay: 0.7s;
 }

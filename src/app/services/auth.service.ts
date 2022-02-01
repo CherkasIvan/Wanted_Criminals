@@ -16,21 +16,21 @@ export class AuthService {
     role: '',
   };
 
-  isUserLoggedIn(): boolean {
+  public isUserLoggedIn(): boolean {
     return this.isloggedIn;
   }
 
-  isAuth(): any {
+  public isAuth(): void {
     localStorage.setItem('email', this.userData.email);
     localStorage.setItem('role', this.userData.role);
     this.router.navigate(['/main-page']);
   }
 
-  disAuth(): any {
+  public disAuth(): void {
     localStorage.clear();
   }
 
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   public login(email: User, password: User): Observable<Response> {
     let requestURL = '../../assets/users-auth.json';

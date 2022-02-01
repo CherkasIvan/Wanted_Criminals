@@ -4,7 +4,7 @@
       <span>wanted criminals</span>
     </div>
     <nav class="header_container_navigation">
-      <span class="header_container_navigation_time">{{clock}}</span>
+      <span class="header_container_navigation_time">{{clock | async}}</span>
       <fw-profile-selection *ngIf="isShowModal$ | async"></fw-profile-selection>
     </nav>
   </div>

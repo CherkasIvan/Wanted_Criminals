@@ -1,7 +1,6 @@
 //Custom styles
 $margin-half: 0.5rem;
 
-
 //Background
 $login-background: linear-gradient(45deg,
   hsl(240deg 100% 20%) 0%,
@@ -12,3 +11,12 @@ $login-background: linear-gradient(45deg,
   hsl(339deg 100% 33%) 90%,
   hsl(345deg 100% 35%) 94%,
   hsl(0deg 72% 43%) 100%);
+
+  //background nth mixin
+  @mixin transition-delay_item {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        transition-delay: .25s #{$i * .05}s;
+      }
+    }
+  }

@@ -23,19 +23,18 @@ export class AuthGuard implements CanLoad, CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authService.isUserLoggedIn()) {
-      return true;
+    const isLoggedIn = this.authService.isUserLoggedIn();
+    if (!isLoggedIn) {
+      this.router.navigate(['login-page']);
     }
-    this.router.navigate(['login-page']);
-    return false;
+    return isLoggedIn;
   }
 
   canLoad(route: Route): boolean {
-    let url: string | undefined = route.path;
-    if (this.authService.isUserLoggedIn()) {
-      return true;
+    const isLoggedIn = this.authService.isUserLoggedIn();
+    if (!isLoggedIn) {
+      this.router.navigate(['login-page']);
     }
-    this.router.navigate(['login-page']);
-    return false;
+    return isLoggedIn;
   }
 }
