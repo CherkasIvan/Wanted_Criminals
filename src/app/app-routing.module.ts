@@ -9,6 +9,8 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 
 import { AuthGuard } from './guards/auth-guard/auth.guard';
 
+import { AnimationDataEnum } from '../assets/constants/animation-data-enums';
+
 const routes: Routes = [
   {
     path: '',
@@ -23,18 +25,17 @@ const routes: Routes = [
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
-    data: { animationName: 'login-page' },
+    data: { animationName: [AnimationDataEnum.loginPage] },
   },
   {
     path: 'main-page',
     canLoad: [AuthGuard],
     canActivate: [AuthGuard],
-    component: MainPageComponent,
     loadChildren: () =>
       import('./pages/main-page/main-page.module').then(
         (m) => m.MainPageModule
       ),
-    data: { animationName: 'main-page' },
+    data: { animationName: [AnimationDataEnum.mainPage] },
   },
   {
     path: 'content-page',
@@ -42,7 +43,7 @@ const routes: Routes = [
       import('./pages/content-page/content-page.module').then(
         (m) => m.ContentPageModule
       ),
-    data: { animationName: 'content-page' },
+    data: { animationName: [AnimationDataEnum.contentPage] },
   },
   {
     path: 'settings-page',
@@ -50,7 +51,7 @@ const routes: Routes = [
       import('./pages/settings-page/settings-page.module').then(
         (m) => m.SettingsPageModule
       ),
-    data: { animationName: 'settings-page' },
+    data: { animationName: [AnimationDataEnum.settingsPage] },
   },
   {
     path: '**',
@@ -58,7 +59,7 @@ const routes: Routes = [
       import('./pages/not-found-page/not-found-page.module').then(
         (m) => m.NotFoundPageModule
       ),
-    data: { animationName: '404' },
+    data: { animationName: [AnimationDataEnum.errorPage] },
   },
 ];
 

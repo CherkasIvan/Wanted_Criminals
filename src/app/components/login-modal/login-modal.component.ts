@@ -34,23 +34,15 @@ import { LoginModalModule } from './login-modal.module';
 })
 export class LoginModalComponent implements OnInit, OnDestroy {
   public users: User[] = [];
-  public aSub: Subscription = new Subscription();
+  public loginAuthSub: Subscription = new Subscription();
   public profileForm!: FormGroup;
 
   public get f() {
     return this.profileForm.controls;
   }
 
-  constructor(
-    public dialogRef: MatDialogRef<LoginModalComponent>,
-    public authService: AuthService,
-    private fb: FormBuilder,
-    private modalService: ModalService,
-    private router: Router
-  ) {}
-
-  ngOnInit(): void {
-    this.profileForm = this.fb.group({
+  public initializeForm(): FormGroup {
+    return this.fb.group({
       email: new FormControl('', [
         Validators.required,
         Validators.email,
@@ -62,6 +54,18 @@ export class LoginModalComponent implements OnInit, OnDestroy {
         Validators.maxLength(16),
       ]),
     });
+  }
+
+  constructor(
+    public dialogRef: MatDialogRef<LoginModalComponent>,
+    public authService: AuthService,
+    private fb: FormBuilder,
+    private modalService: ModalService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.profileForm = this.initializeForm();
   }
 
   public closeModal(): void {
@@ -76,7 +80,7 @@ export class LoginModalComponent implements OnInit, OnDestroy {
       role: this.profileForm.value.role,
     };
 
-    this.aSub = this.authService
+    this.loginAuthSub = this.authService
       .login(this.profileForm.value.email, this.profileForm.value.password)
       .subscribe(
         () => {
@@ -91,8 +95,8 @@ export class LoginModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.aSub) {
-      this.aSub.unsubscribe();
+    if (this.loginAuthSub) {
+      this.loginAuthSub.unsubscribe();
     }
   }
 }

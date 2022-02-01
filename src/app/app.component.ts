@@ -1,6 +1,16 @@
-import { Component,ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
-import { RouterOutlet } from '@angular/router';
+import {
+  RouterOutlet,
+  Router,
+  NavigationCancel,
+  NavigationStart,
+  NavigationEnd,
+  NavigationError,
+} from '@angular/router';
+
+import { Observable, of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 import { AnimationRoute } from './animations/animation-route';
 
@@ -11,9 +21,30 @@ import { AnimationRoute } from './animations/animation-route';
   animations: [AnimationRoute],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  title: string = 'wanted_criminals';
+export class AppComponent implements OnInit {
+  public title: string = 'wanted_criminals';
+  public loading$: Observable<boolean> = of(false);
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.loading$ = this.router.events.pipe(
+      filter(
+        (e) =>
+          e instanceof NavigationStart ||
+          e instanceof NavigationEnd ||
+          e instanceof NavigationCancel ||
+          e instanceof NavigationError
+      ),
+      map((e) => e instanceof NavigationStart)
+    );
+  }
+
   animationRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animationName'];
-    }  
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData['animationName']
+    );
+  }
 }

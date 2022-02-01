@@ -15,7 +15,7 @@ export class ProfileSelectionComponent {
   public show: boolean = true;
   public showModal: boolean = false;
 
-  constructor(public dialog: MatDialog, public service: ModalService) {}
+  constructor(private dialog: MatDialog, private service: ModalService) {}
 
   openModal(): void {
     const dialogRef = this.dialog.open(LoginModalComponent, {

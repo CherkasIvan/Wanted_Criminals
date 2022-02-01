@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
-import { ClockService } from '../../services/clock.service';
 import { ModalService } from '../../services/modal.service';
+
+import { Observer, Observable, pipe, timer, share, map } from 'rxjs';
 
 @Component({
   selector: 'fw-header',
@@ -9,19 +10,14 @@ import { ModalService } from '../../services/modal.service';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public isShowModal$ = this._modalService.isShowModal$;
-  clock: any;
-  constructor(
-    private _clockService: ClockService,
-    private _modalService: ModalService
-  ) {}
+  public clock: Observable<string> = timer(0, 1000).pipe(
+    map((tick) => new Date().toLocaleString()),
+    share()
+  );
 
-  ngOnInit(): void {
-    this._clockService.time.subscribe(
-      (now: Date) => (this.clock = now.toUTCString())
-    );
-  }
+  constructor(private _modalService: ModalService) {}
 
   public openModal(): void {
     this.isShowModal$.next(true);
