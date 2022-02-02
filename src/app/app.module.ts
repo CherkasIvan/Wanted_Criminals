@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgHttpLoaderModule } from 'ng-http-loader';
+
 import { AppMaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -26,7 +28,6 @@ import { AuthGuard } from './guards/auth-guard/auth.guard';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     AppRoutingModule,
     MainPageModule,
     SidenavModule,
@@ -38,6 +39,8 @@ import { AuthGuard } from './guards/auth-guard/auth.guard';
     ContentPageModule,
     NotFoundPageModule,
     AppMaterialModule,
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
