@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
-
-import { LoginModalComponent } from '../components/login-modal/login-modal.component';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ModalService {
+  public isShowLogin$: boolean = true;
   public isShowModal$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
 
-  constructor() {}
+  constructor(private authService:AuthService) {}
 
-  public openModal(): void {
+  public showModalComponents(): void {
+    this.isShowLogin$ = false;
     this.isShowModal$.next(true);
   }
 
-  public closeModal(): void {
+  public hideModalComponents(): void {
+    this.isShowLogin$ = false;
     this.isShowModal$.next(false);
+    this.authService.disAuth();
   }
 }
