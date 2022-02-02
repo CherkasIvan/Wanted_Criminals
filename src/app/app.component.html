@@ -1,4 +1,4 @@
-<div *ngIf="loading$ | async">Loading...</div>
+<ng-http-loader></ng-http-loader>
 <fw-header></fw-header>
 <div [@routeAnimations]="animationRoute(outletInfo)">
   <router-outlet #outletInfo="outlet"></router-outlet>

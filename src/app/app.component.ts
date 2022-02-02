@@ -1,17 +1,10 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
-import {
-  RouterOutlet,
-  Router,
-  NavigationCancel,
-  NavigationStart,
-  NavigationEnd,
-  NavigationError,
-} from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { ModalService } from './services/modal.service';
 
 import { AnimationRoute } from './animations/animation-route';
 
@@ -22,23 +15,10 @@ import { AnimationRoute } from './animations/animation-route';
   animations: [AnimationRoute],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public title: string = 'wanted_criminals';
-  public loading$: Observable<boolean> = of(false);
-  constructor(private router: Router, public modalService: ModalService) {}
 
-  ngOnInit() {
-    this.loading$ = this.router.events.pipe(
-      filter(
-        (e) =>
-          e instanceof NavigationStart ||
-          e instanceof NavigationEnd ||
-          e instanceof NavigationCancel ||
-          e instanceof NavigationError
-      ),
-      map((e) => e instanceof NavigationStart)
-    );
-  }
+  constructor(private router: Router, private http: HttpClient) {}
 
   animationRoute(outlet: RouterOutlet) {
     return (

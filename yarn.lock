@@ -1405,6 +1405,13 @@
   "resolved" "https://registry.npmjs.org/@types/retry/-/retry-0.12.1.tgz"
   "version" "0.12.1"
 
+"@types/spin.js@^3.0.0":
+  "integrity" "sha512-UwhQr80UA5dDNn+COjs7yMRME/gko8UDHdXm6yIJmywHd4V1fe4c5UHt8EU0SfT3STJbWvytEbHb+p9CahVFvg=="
+  "resolved" "https://registry.npmjs.org/@types/spin.js/-/spin.js-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "spin.js" "*"
+
 "@webassemblyjs/ast@1.11.1":
   "integrity" "sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw=="
   "resolved" "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.11.1.tgz"
@@ -4163,6 +4170,13 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"ng-http-loader@^11.0.1":
+  "integrity" "sha512-rTjMVwYYoRaxy/w9ggGxzoS5aSzzd8LnFUfuCmVQ6cElCoJtm3Tk6WuLQdPK5PjD636tcZhL3MtxaIl+3trstQ=="
+  "resolved" "https://registry.npmjs.org/ng-http-loader/-/ng-http-loader-11.0.1.tgz"
+  "version" "11.0.1"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "ngx-auth@^5.4.0":
   "integrity" "sha512-J6VFD1+1tt16PGlhrVXnPQesWWUgpAg14pIqsxv1DEYuExqanEj/SqhK+jirmTTKCbQcsIKI0uD4nVtrMxC05g=="
   "resolved" "https://registry.npmjs.org/ngx-auth/-/ngx-auth-5.4.0.tgz"
@@ -5311,7 +5325,7 @@
   dependencies:
     "queue-microtask" "^1.2.2"
 
-"rxjs@^6.4.0 || ^7.0.0", "rxjs@^6.5.3 || ^7.4.0", "rxjs@^7.2.0", "rxjs@>=6.0.0", "rxjs@~7.4.0":
+"rxjs@^6.4.0 || ^7.0.0", "rxjs@^6.5.3 || ^7.4.0", "rxjs@^7.2.0", "rxjs@^7.4.0", "rxjs@>=6.0.0", "rxjs@~7.4.0":
   "integrity" "sha512-7SQDi7xeTMCJpqViXh8gL/lebcwlp3d831F05+9B44A4B0WfsEwUQHR64gsH1kvJ+Ep/J9K2+n1hVl1CsGN23w=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-7.4.0.tgz"
   "version" "7.4.0"
@@ -5694,6 +5708,11 @@
     "http-deceiver" "^1.2.7"
     "select-hose" "^2.0.0"
     "spdy-transport" "^3.0.0"
+
+"spin.js@*", "spin.js@^2.3.2":
+  "integrity" "sha1-bKpW1SBnNFD9XPvGlx5tB3LDeho="
+  "resolved" "https://registry.npmjs.org/spin.js/-/spin.js-2.3.2.tgz"
+  "version" "2.3.2"
 
 "sprintf-js@~1.0.2":
   "integrity" "sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw="
