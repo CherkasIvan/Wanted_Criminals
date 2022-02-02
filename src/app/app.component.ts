@@ -11,6 +11,7 @@ import {
 
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { ModalService } from './services/modal.service';
 
 import { AnimationRoute } from './animations/animation-route';
 
@@ -24,8 +25,7 @@ import { AnimationRoute } from './animations/animation-route';
 export class AppComponent implements OnInit {
   public title: string = 'wanted_criminals';
   public loading$: Observable<boolean> = of(false);
-
-  constructor(private router: Router) {}
+  constructor(private router: Router, public modalService: ModalService) {}
 
   ngOnInit() {
     this.loading$ = this.router.events.pipe(

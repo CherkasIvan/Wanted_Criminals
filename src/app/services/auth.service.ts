@@ -9,8 +9,8 @@ import { Response } from '../models/responses';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private isloggedIn: boolean = false;
-  private userData = {
+  public isloggedIn: boolean = false;
+  public userData = {
     email: '',
     password: '',
     role: '',
@@ -27,7 +27,9 @@ export class AuthService {
   }
 
   public disAuth(): void {
+    this.userData.role = '';
     localStorage.clear();
+    this.router.navigate(['/login-page']);
   }
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -55,9 +57,8 @@ export class AuthService {
             !inputValue.password
           ) {
             this.isloggedIn = false;
-            console.log(this.isloggedIn);
+            return this.disAuth();
           }
-          return this.disAuth();
         });
         this.isloggedIn;
         return usersList;

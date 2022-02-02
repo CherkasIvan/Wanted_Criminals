@@ -73,6 +73,7 @@ export class LoginModalComponent implements OnInit, OnDestroy {
   }
 
   public login(): void {
+    
     this.profileForm.disable();
     const user: User = {
       email: this.profileForm.value.email,

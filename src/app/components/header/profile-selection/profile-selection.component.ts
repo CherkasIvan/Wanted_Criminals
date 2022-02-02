@@ -1,5 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { ModalService } from '../../../services/modal.service';
 
@@ -12,22 +15,27 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileSelectionComponent {
-  public show: boolean = true;
-  public showModal: boolean = false;
-
-  constructor(private dialog: MatDialog, private service: ModalService) {}
+  public isShowLogin$: boolean = this.modalService.isShowLogin$;
+  public isShowModal$: BehaviorSubject<boolean> =
+    this.modalService.isShowModal$;
+  constructor(
+    private dialog: MatDialog,
+    private modalService: ModalService,
+    private router: Router
+  ) {}
 
   openModal(): void {
-    const dialogRef = this.dialog.open(LoginModalComponent, {
-      panelClass: 'custom-dialog-container',
-    });
+    if (this.isShowLogin$) {
+      const dialogRef = this.dialog.open(LoginModalComponent, {
+        panelClass: 'custom-dialog-container',
+      });
 
-    this.show = false;
-    this.showModal = true;
-  }
-
-  closeModal(): void {
-    this.show = true;
-    this.showModal = false;
+      this.modalService.showModalComponents();
+      this.isShowLogin$ = false;
+      console.log(this.isShowLogin$);
+    } else {
+      this.modalService.hideModalComponents();
+      this.isShowLogin$ = true;
+    }
   }
 }

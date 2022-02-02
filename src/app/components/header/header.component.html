@@ -5,7 +5,10 @@
     </div>
     <nav class="header_container_navigation">
       <span class="header_container_navigation_time">{{clock | async}}</span>
-      <fw-profile-selection *ngIf="isShowModal$ | async"></fw-profile-selection>
+
+      <div class="header_container_navigation_user_role">{{ authService.userData.role }}</div>
+
+      <fw-profile-selection></fw-profile-selection>
     </nav>
   </div>
 </header>
