@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AppMaterialModule } from '../../app-material.module';
+
 import { TranslateModule } from '@ngx-translate/core';
-import { LoginModalComponent } from './login-modal.component';
+import { CriminalsTableComponent } from './criminals-table.component';
 
 @NgModule({
   imports: [CommonModule, AppMaterialModule, TranslateModule],
-  declarations: [LoginModalComponent],
-  exports: [LoginModalComponent],
+  declarations: [CriminalsTableComponent],
+  exports: [CriminalsTableComponent],
 })
-export class LoginModalModule {}
+export class CriminalsTableModule {}
