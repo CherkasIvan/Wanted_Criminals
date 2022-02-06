@@ -1,0 +1,13 @@
+  <div class="criminal_card_wrapper">
+    <div class="criminal_card_wrapper_content">
+      <img src="{{items.images[0].thumb}}" alt="foto" class="criminal_card criminal_card_img">
+      <div class="criminal_card">{{ 'card.name' | translate }}{{items.aliases}}</div>
+      <div class="criminal_card">{{ 'card.sex' | translate }}{{items.sex}}</div>
+      <div class="criminal_card">{{ 'card.date' | translate }}{{items.dates_of_birth_used}}</div>
+      <div class="criminal_card">{{ 'card.weight_max' | translate }}{{items.weight_max}}</div>
+      <button (click)="viewMore()" class="viewMore action-button shadow animate blue">{{ 'card.view' | translate }}</button>
+      <div *ngIf="isViewMore" class="additional-content">
+        <div class="criminal_card">{{ 'card.description' | translate }}{{items.description}}</div>
+      </div>
+    </div>
+  </div>

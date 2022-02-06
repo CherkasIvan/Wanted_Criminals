@@ -1,0 +1,16 @@
+::ng-deep .menu-items {
+  background: black;
+  margin-top: .5rem;
+}
+
+.lang-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  height: 2rem;
+  width: 2rem;
+  margin-right: .5rem;
+}
