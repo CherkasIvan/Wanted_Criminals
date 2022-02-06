@@ -10,11 +10,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   exports: [
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatSliderModule,
     MatMenuModule,
     MatFormFieldModule,
@@ -25,6 +28,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   imports: [FormsModule],
 })
