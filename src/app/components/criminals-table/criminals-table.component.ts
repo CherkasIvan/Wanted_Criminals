@@ -6,85 +6,123 @@ import {
   Input,
   ViewChild,
   AfterViewInit,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
-import { Subject, Subscription, Observable } from 'rxjs';
+import { Subject, Subscription, Observable, map, tap } from 'rxjs';
 
-import { Criminals } from '../../models/criminals';
 import { ContentService } from '../../services/content.service';
 
-const ELEMENT_DATA: Criminals[] = [];
+import { SlideInOutAnimation } from '../../animations/animation-route';
+
+import { Criminals } from '../../models/criminals';
+
 @Component({
   selector: 'fw-criminals-table',
   templateUrl: './criminals-table.component.html',
   styleUrls: ['./criminals-table.component.scss'],
+  animations: [SlideInOutAnimation],
 })
 export class CriminalsTableComponent
   implements AfterViewInit, OnDestroy, OnInit
 {
-  public response: any;
-  public displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  public dataSource = new MatTableDataSource<Criminals>(ELEMENT_DATA);
-  public aSub: Subscription = new Subscription();
-  public unsubscribe: Subject<void> = new Subject();
-  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  public array: any;
+  public dataSource: any;
+  public pageEvent: any;
+  public animationState = 'out';
 
-  public getData() {
-    this.aSub = this.contentService
-      .getCriminals()
-      .subscribe((response: any) => {
-        this.response = response;
-        console.log(this.response);
-      });
+  public pageSize = 3;
+  public currentPage = 0;
+  public totalSize = 0;
+
+  private iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.array.slice(start, end);
+    this.dataSource = part;
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  public handlePage(e: any) {
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  toggleShowDiv(divName: string) {
+    if (divName === 'animation') {
+      console.log(this.animationState);
+      this.animationState = this.animationState === 'out' ? 'in' : 'out';
+      console.log(this.animationState);
+    }
+  }
+
+  public response: Criminals[];
+  public criminals$: Observable<MatTableDataSource<Criminals>>;
+  public displayedColumns: string[] = [
+    'id',
+    'Photo',
+    'Name',
+    'Sex',
+    'Date of birth',
+    'Max weight',
+    'View',
+    'Description',
+  ];
+  public aSub: Subscription = new Subscription();
+  public unsubscribe: Subject<void> = new Subject();
+  public total: number;
+  public isViewMore: boolean = false;
+  public viewMore(): void {
+    this.isViewMore = !this.isViewMore;
+    console.log(this.isViewMore);
+  }
+
+  private getArray() {
+    this.contentService.getCriminals().subscribe((criminalsResponse) => {
+      this.dataSource = this.criminals$;
+      this.array = criminalsResponse.items;
+      this.totalSize = this.array.length;
+      this.dataSource.paginator = this.paginator;
+      this.iterator();
+      console.log(this.dataSource);
+      console.log(this.array);
+    });
+  }
+
+  public getData() {
+    this.criminals$ = this.contentService.getCriminals().pipe(
+      tap((criminalsResponse) => {
+        this.total = criminalsResponse.total;
+
+        console.log(criminalsResponse.items);
+      }),
+      map((criminalsResponse) => {
+        const criminalsDS = new MatTableDataSource<Criminals>(
+          criminalsResponse.items
+        );
+        console.log(criminalsDS);
+        console.log(this.criminals$);
+        return criminalsDS;
+      })
+    );
   }
 
   constructor(public contentService: ContentService) {}
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.getData();
+    this.getArray();
   }
 
-  ngOnDestroy(): void {
+  ngAfterViewInit(): void {}
+
+  async ngOnDestroy(): Promise<void> {
     if (this.aSub) {
       this.aSub.unsubscribe();
     }
   }
 }
-
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   weight: number;
-//   symbol: string;
-// }
-
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-//   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-//   { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-//   { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-//   { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-//   { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-//   { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-//   { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-//   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-//   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-//   { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-//   { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-//   { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-//   { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-//   { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-//   { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-//   { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-//   { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-//   { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-//   { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
-// ];

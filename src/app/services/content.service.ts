@@ -2,19 +2,18 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, pipe } from 'rxjs';
-import { Criminals } from '../models/criminals';
+import { CriminalsResponse } from '../models/criminals';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContentService {
-  public response: any;
-
   constructor(private httpClient: HttpClient) {}
 
-  public getCriminals() {
+
+  public getCriminals(): Observable<CriminalsResponse> {
     const requestURL: string = 'https://api.fbi.gov/wanted';
 
-    return this.httpClient.get<Criminals>(requestURL);
+    return this.httpClient.get<CriminalsResponse>(requestURL);
   }
 }

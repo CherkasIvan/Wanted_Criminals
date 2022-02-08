@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,33 +15,30 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
   styleUrls: ['./profile-selection.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileSelectionComponent implements OnInit {
-  public isShowLogin$: boolean = this.modalService.isShowLogin$;
+export class ProfileSelectionComponent {
+
+  public isShowLogin: boolean = this.modalService.isShowLogin;
   public isShowModal$: BehaviorSubject<boolean> =
     this.modalService.isShowModal$;
+
   constructor(
     private dialog: MatDialog,
     private modalService: ModalService,
     private router: Router,
     private translate: TranslateService
   ) {}
-  ngOnInit(): void {
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
-    console.log(this.isShowLogin$);
-  }
 
   openModal(): void {
-    if (this.isShowLogin$) {
+    if (this.isShowLogin) {
       const dialogRef = this.dialog.open(LoginModalComponent, {
         panelClass: 'custom-dialog-container',
       });
       this.modalService.showModalComponents();
-      this.isShowLogin$ = true;
-      console.log(this.isShowLogin$);
+      this.isShowLogin = false;
+      console.log(this.isShowLogin);
     } else {
       this.modalService.hideModalComponents();
-      this.isShowLogin$ = false;
+      this.isShowLogin = true;
     }
   }
 }
