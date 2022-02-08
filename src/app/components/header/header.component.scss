@@ -1,7 +1,5 @@
 .header {
-  backdrop-filter: blur(10px);
-  background: inherit;
-  backdrop-filter: blur(10px);
+  background: transparent;
   opacity: 1;
   position: fixed;
   top: 0;
@@ -33,7 +31,7 @@
       align-items: center;
 
       &_time {
-        margin-right: 1.5rem;
+        margin: 1.5rem;
       }
 
       &_user_role {

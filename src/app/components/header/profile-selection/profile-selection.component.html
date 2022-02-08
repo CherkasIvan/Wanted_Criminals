@@ -1,7 +1,10 @@
 <div class="person">
   <div class="person_info">
     <div class="wrap">
-      <button class="wrap_button" (click)="openModal()">{{ this.isShowLogin$?'login':'logout' | translate }}</button>
+      <button class="wrap_button" (click)="openModal()">
+        <span *ngIf="isShowLogin">{{ 'auth.login' | translate }}</span>
+        <span *ngIf="!isShowLogin">{{ 'auth.logout' | translate }}</span>
+      </button>
     </div>
   </div>
 </div>

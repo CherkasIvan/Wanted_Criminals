@@ -1,10 +1,14 @@
 {
-  "HEADER": {
-    "WANTED_CRIMINALS": "wanted criminals"
+  "guest": "guest",
+  "admin": "admin",
+  "user": "user",
+  "header": {
+    "wanted": "wanted criminals"
   },
-  "WARN": {
-    "LOGIN": "login",
-    "LOGOUT": "logout"
+
+  "auth": {
+    "login": "Login",
+    "logout": "Logout"
   },
   "sidenav": {
     "menu": "Menu",
@@ -25,11 +29,13 @@
     "email": "Enter your E-mail:"
   },
   "card": {
+    "photo": "Photo",
     "name": "Name: ",
     "sex": "Sex: ",
     "date": "Date of birth: ",
     "weight_max": "Weight max: ",
     "view": "View more",
+    "hide": "Hide information",
     "description": "Description: "
   }
 }
