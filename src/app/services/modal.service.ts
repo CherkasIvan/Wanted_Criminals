@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class ModalService {
-  public isShowLogin: boolean = false;
+  public isShowLogin: boolean = true;
   public isShowModal$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );

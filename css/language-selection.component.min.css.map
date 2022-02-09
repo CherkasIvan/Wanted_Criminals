@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC,WAAW,AAAC,CACpB,UAAU,CAAE,KAAK,CACjB,UAAU,CAAE,KAAK,CAClB,AAED,AAAA,UAAU,AAAC,CACT,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,aAAa,CAC9B,WAAW,CAAE,MAAM,CACpB,AAED,AAAA,GAAG,AAAC,CACF,MAAM,CAAE,IAAI,CACZ,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,OAAO,CAChB",
+    "sources": [
+        "../src/app/components/language-selection/language-selection.component.scss"
+    ],
+    "names": [],
+    "file": "language-selection.component.min.css"
+}
