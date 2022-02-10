@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "~13.1.0",
     "@angular/cdk": "^13.1.2",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
@@ -20,7 +21,6 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
-    "@auth0/auth0-angular": "^1.8.2",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@ngneat/until-destroy": "^9.0.0",
     "@ngrx/effects": "^13.0.2",
@@ -35,8 +35,6 @@
     "ngx-auth": "^5.4.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~7.4.0",
-    "spin.js": "^2.3.2",
-    "swiper": "^8.0.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

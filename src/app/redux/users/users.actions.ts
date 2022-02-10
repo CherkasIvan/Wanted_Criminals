@@ -30,5 +30,3 @@ export const getUsersError = createAction(USER_ACTIONS.GET_USERS_ERROR,
 export const getUserError = createAction(USER_ACTIONS.GET_USER_ERROR,
     props<{error:HttpErrorResponse}>()
     )
-
-export type UserActions = getUser|getUsers|getUsersSuccess|getUserSuccess|getUserError|getUsersError

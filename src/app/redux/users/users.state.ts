@@ -5,7 +5,3 @@ export interface UsersState {
   selectedUser: User;
 }
 
-export const intialUserState: UsersState = {
-  users: null,
-  selectedUser: null,
-};

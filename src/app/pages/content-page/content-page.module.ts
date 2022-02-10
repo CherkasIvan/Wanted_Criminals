@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SwiperModule } from 'swiper/angular';
 
 import { ContentPageRoutingModule } from './content-page-routing.module';
 import { SidenavModule } from 'src/app/components/sidenav/sidenav.module';
@@ -18,7 +17,6 @@ import { CriminalsTableModule } from 'src/app/components/criminals-table/crimina
   imports: [
     MatPaginatorModule,
     MatTableModule,
-    SwiperModule,
     CommonModule,
     ContentPageRoutingModule,
     SidenavModule,

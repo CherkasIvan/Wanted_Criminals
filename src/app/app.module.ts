@@ -32,6 +32,9 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationServiceService } from './services/missing-translation-service.service';
 import { CriminalsTableModule } from './components/criminals-table/criminals-table.module';
+import { DarkModeModule } from './components/dark-mode/dark-mode.module';
+
+// import { appReducers } from './redux';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -50,13 +53,14 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     SettingsPageModule,
     LanguageSelectionModule,
     HeaderModule,
+    DarkModeModule,
     ContentPageModule,
     NotFoundPageModule,
     CriminalsTableModule,
     AppMaterialModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({}),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
