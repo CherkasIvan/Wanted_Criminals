@@ -13,22 +13,25 @@
 
     <ng-container matColumnDef="Name">
       <th mat-header-cell *matHeaderCellDef class="data-table_topic">{{ 'card.name' | translate }}</th>
-      <td mat-cell *matCellDef="let element"> {{ 'card.name' | translate }}{{element.aliases}} </td>
+      <td mat-cell *matCellDef="let element">
+        {{ 'card.name' | translate  }}{{element.aliases | unknownProperty}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Sex">
       <th mat-header-cell *matHeaderCellDef class="data-table_topic">{{ 'card.sex' | translate }}</th>
-      <td mat-cell *matCellDef="let element"> {{ 'card.sex' | translate }}{{element.sex}} </td>
+      <td mat-cell *matCellDef="let element"> {{ 'card.sex' | translate }}{{element.sex | unknownProperty}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Date of birth">
       <th mat-header-cell *matHeaderCellDef class="data-table_topic">{{ 'card.date' | translate }}</th>
-      <td mat-cell *matCellDef="let element"> {{ 'card.date' | translate }}{{element.dates_of_birth_used}} </td>
+      <td mat-cell *matCellDef="let element">
+        {{ 'card.date' | translate }}{{element.dates_of_birth_used| unknownProperty}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Max weight" class="data-table_topic">
       <th mat-header-cell *matHeaderCellDef>{{ 'card.weight_max' | translate }}</th>
-      <td mat-cell *matCellDef="let element"> {{ 'card.weight_max' | translate }}{{element.weight_max}} </td>
+      <td mat-cell *matCellDef="let element"> {{ 'card.weight_max' | translate }}{{element.weight_max| unknownProperty}}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="View" class="data-table_topic">

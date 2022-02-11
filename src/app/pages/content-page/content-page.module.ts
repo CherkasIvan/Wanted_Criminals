@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ContentPageRoutingModule } from './content-page-routing.module';
 import { SidenavModule } from 'src/app/components/sidenav/sidenav.module';
 import { ContentPageComponent } from './content-page.component';
-import { CriminalCardModule } from 'src/app/components/criminal-card/criminal-card.module';
 import {
   MatPaginatorIntl,
   MatPaginatorModule,
@@ -20,7 +19,6 @@ import { CriminalsTableModule } from 'src/app/components/criminals-table/crimina
     CommonModule,
     ContentPageRoutingModule,
     SidenavModule,
-    CriminalCardModule,
     CriminalsTableModule,
   ],
 })

@@ -8,20 +8,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   templateUrl: './dark-mode.component.html',
   styleUrls: ['./dark-mode.component.scss'],
 })
-export class DarkModeComponent implements OnInit {
-  @HostBinding('class') className = '';
-  public toggleControl = new FormControl(false);
-
-  constructor(private dialog: MatDialog, private overlay: OverlayContainer) {}
-  ngOnInit(): void {
-    this.toggleControl.valueChanges.subscribe((darkMode: any) => {
-      const darkClassName = 'darkMode';
-      this.className = darkMode ? darkClassName : '';
-      if (darkMode) {
-        this.overlay.getContainerElement().classList.add(darkClassName);
-      } else {
-        this.overlay.getContainerElement().classList.remove(darkClassName);
-      }
-    });
+export class DarkModeComponent {
+  toggleDarkTheme(): void {
+    document.body.classList.toggle('dark-theme');
   }
 }

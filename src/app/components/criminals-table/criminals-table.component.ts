@@ -31,9 +31,9 @@ export class CriminalsTableComponent
   implements AfterViewInit, OnDestroy, OnInit
 {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  public array: any;
+  public array: Criminals[];
   public dataSource: any;
-  public pageEvent: any;
+  public pageEvent: void;
   public animationState = 'out';
 
   public pageSize = 3;
@@ -115,12 +115,13 @@ export class CriminalsTableComponent
   constructor(public contentService: ContentService) {}
   async ngOnInit(): Promise<void> {
     this.getData();
+  }
+
+  ngAfterViewInit(): void {
     this.getArray();
   }
 
-  ngAfterViewInit(): void {}
-
-  async ngOnDestroy(): Promise<void> {
+  ngOnDestroy(): void {
     if (this.aSub) {
       this.aSub.unsubscribe();
     }
