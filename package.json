@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -30,11 +31,14 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/lodash": "^4.14.178",
+    "express": "^4.17.2",
     "lodash": "^4.17.21",
     "ng-http-loader": "^11.0.1",
     "ngx-auth": "^5.4.0",
     "normalize.css": "^8.0.1",
+    "path": "^0.12.7",
     "rxjs": "~7.4.0",
+    "serve": "^13.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -53,5 +57,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.5.2"
+  },
+  "engines": {
+    "node": "17.2.0",
+    "npm": "8.4.1"
   }
 }
