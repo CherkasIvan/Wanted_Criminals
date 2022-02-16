@@ -7,6 +7,8 @@ import { LoginModalModule } from '../login-modal/login-modal.module';
 import { HeaderComponent } from './header.component';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { DarkModeModule } from '../dark-mode/dark-mode.module';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -14,6 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
     LoginModalModule,
     TranslateModule,
     LanguageSelectionModule,
+    DarkModeModule,
   ],
   declarations: [HeaderComponent],
   exports: [HeaderComponent],

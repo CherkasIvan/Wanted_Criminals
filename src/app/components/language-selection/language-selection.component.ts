@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguageService } from '../../services/language-selection.service';
 import { forEach, isEqual } from 'lodash';
+
+import { LanguageService } from '../../services/language-selection.service';
+
 import { Language } from '../../models/language';
 
 @Component({
   selector: 'fw-language-selection',
   templateUrl: './language-selection.component.html',
   styleUrls: ['./language-selection.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LanguageSelectionComponent implements OnInit {
   public currentLang = '';

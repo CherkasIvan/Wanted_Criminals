@@ -17,11 +17,17 @@ th.mat-header-cell {
   margin: auto;
 }
 
+
+.mat-table {
+  background: #32393e;
+}
+
 th,
 td {
   max-width: 10vw;
   text-align: center;
   vertical-align: middle;
+  color: white
 }
 
 .viewMore {
@@ -70,5 +76,13 @@ td.mat-cell {
 
 .animate {
   height: 100%;
-  width: 100%;  
+  width: 100%;
+}
+
+img {
+  max-height: 8vw;
+}
+
+mat-paginator{
+  background: darkgrey;
 }

@@ -1,6 +1,18 @@
+.lang-select-button:hover {
+  transition: .5s;
+}
+
+.lang-select-button:hover {
+  transform: scale(1.2);
+}
+
 ::ng-deep .menu-items {
   background: black;
   margin-top: .5rem;
+
+  .lang-item {
+    color: white;
+  }
 }
 
 .lang-item {

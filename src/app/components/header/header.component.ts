@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+import { Observable, timer, share, map } from 'rxjs';
 
 import { ModalService } from '../../services/modal.service';
-
-import { Observer, Observable, pipe, timer, share, map } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'fw-header',
