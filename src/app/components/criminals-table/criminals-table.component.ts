@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Subject, Subscription, Observable, map, tap } from 'rxjs';
+import { Subject, Subscription, Observable, map, tap, BehaviorSubject } from 'rxjs';
 
 import { CriminalsService } from '../../services/criminals.service';
 
