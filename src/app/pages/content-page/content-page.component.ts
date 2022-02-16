@@ -8,8 +8,7 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { ContentService } from '../../services/content.service';
-
+import { CriminalsService } from '../../services/criminals.service';
 
 @Component({
   selector: 'fw-content-page',

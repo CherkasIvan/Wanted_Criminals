@@ -1,5 +1,6 @@
 import {Component, Injectable, NgModule} from '@angular/core';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
+
 import {Subject} from 'rxjs';
 
 @Injectable()

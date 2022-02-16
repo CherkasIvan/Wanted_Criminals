@@ -2976,7 +2976,7 @@
     "signal-exit" "^3.0.3"
     "strip-final-newline" "^2.0.0"
 
-"express@^4.17.1":
+"express@^4.17.1", "express@^4.17.2":
   "integrity" "sha512-oxlxJxcQlYwqPWKVJJtvQiwHgosH/LrLSPA+H4UxpyvSS6jC5aH+5MoHFM+KABgTOt0APue4w66Ha8jCUo9QGg=="
   "resolved" "https://registry.npmjs.org/express/-/express-4.17.2.tgz"
   "version" "4.17.2"

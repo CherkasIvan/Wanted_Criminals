@@ -5,9 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class UnknownPropertyPipe implements PipeTransform {
   transform(element: any, args?: any): string {
-    if(!element){
-      element="Unknown"
-    }
-    return element;
+    return element || 'Unknown';
   }
 }

@@ -16,7 +16,7 @@ import { DarkModeModule } from '../dark-mode/dark-mode.module';
     LoginModalModule,
     TranslateModule,
     LanguageSelectionModule,
-    DarkModeModule
+    DarkModeModule,
   ],
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
