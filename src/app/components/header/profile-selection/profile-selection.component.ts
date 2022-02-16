@@ -17,6 +17,7 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileSelectionComponent {
+
   public isShowLogin: boolean = this.modalService.isShowLogin;
   public isShowModal$: BehaviorSubject<boolean> =
     this.modalService.isShowModal$;
