@@ -1,7 +1,10 @@
-import {Component, Injectable, NgModule} from '@angular/core';
-import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
+import { Component, Injectable, NgModule } from '@angular/core';
+import {
+  MatPaginatorIntl,
+  MatPaginatorModule,
+} from '@angular/material/paginator';
 
-import {Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class MyCustomPaginatorIntl implements MatPaginatorIntl {
@@ -15,7 +18,7 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
   previousPageLabel = 'Previous page';
 
   getRangeLabel(page: number, pageSize: number, length: number): string {
-    if (length === 0) {
+    if (!length) {
       return $localize`Page 1 of 1`;
     }
     const amountPages = Math.ceil(length / pageSize);

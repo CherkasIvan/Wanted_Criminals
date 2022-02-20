@@ -27,8 +27,7 @@ import { ProfileSelectionModule } from './components/header/profile-selection/pr
 import { LoginModalModule } from './components/login-modal/login-modal.module';
 import { HeaderModule } from './components/header/header.module';
 import { CriminalsTableModule } from './components/criminals-table/criminals-table.module';
-import { DarkModeModule } from './components/dark-mode/dark-mode.module';
-import { LanguageSelectionModule } from './components/language-selection/language-selection.module';
+import { LanguageSelectionModule } from './components/header/language-selection/language-selection.module';
 
 import { MissingTranslationServiceService } from './services/missing-translation-service.service';
 
@@ -56,7 +55,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     SettingsPageModule,
     LanguageSelectionModule,
     HeaderModule,
-    DarkModeModule,
     ContentPageModule,
     NotFoundPageModule,
     CriminalsTableModule,

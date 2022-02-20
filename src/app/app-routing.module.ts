@@ -9,7 +9,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 
 import { AuthGuard } from './guards/auth-guard/auth.guard';
 
-import { AnimationDataEnum } from '../assets/constants/animation-data-enums';
+import { AnimationDataEnum } from './constants/animation-data-enums';
 
 const routes: Routes = [
   {

@@ -51,11 +51,11 @@
         {{ 'card.description' | translate }}{{element.description}} </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="data-table_topic"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="columns" class="data-table_topic"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
   </mat-table>
 
   <mat-paginator #paginator [showFirstLastButtons]="true" [pageSize]="criminalsData.size" [length]="criminalsData.total"
-    [pageIndex]="criminalsData.page[0]" (page)="loadCriminalsPage($event)">
+    (page)="loadCriminalsPage($event)">
   </mat-paginator>
 </div>

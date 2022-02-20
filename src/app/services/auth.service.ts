@@ -49,7 +49,6 @@ export class AuthService {
           }
           return this.isAuth();
 
-          //Переделать логику разлогинивания
           if (
             inputValue.email != email ||
             inputValue.password != password ||
