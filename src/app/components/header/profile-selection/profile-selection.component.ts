@@ -17,10 +17,7 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileSelectionComponent {
-
   public isShowLogin: boolean = this.modalService.isShowLogin;
-  public isShowModal$: BehaviorSubject<boolean> =
-    this.modalService.isShowModal$;
 
   constructor(
     private dialog: MatDialog,
@@ -29,16 +26,18 @@ export class ProfileSelectionComponent {
     private translate: TranslateService
   ) {}
 
+  showModal(): void {
+    const dialogRef = this.dialog.open(LoginModalComponent, {
+      panelClass: 'custom-dialog-container',
+    });
+    this.modalService.showModalComponents();
+  }
+
+  closeModal(): void {
+    this.modalService.hideModalComponents();
+  }
+
   openModal(): void {
-    if (this.isShowLogin) {
-      const dialogRef = this.dialog.open(LoginModalComponent, {
-        panelClass: 'custom-dialog-container',
-      });
-      this.modalService.showModalComponents();
-      this.isShowLogin = false;
-    } else {
-      this.modalService.hideModalComponents();
-      this.isShowLogin = true;
-    }
+    this.isShowLogin ? this.showModal() : this.closeModal();
   }
 }

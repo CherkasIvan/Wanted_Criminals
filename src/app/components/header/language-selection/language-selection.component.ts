@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { forEach, isEqual } from 'lodash';
 
-import { LanguageService } from '../../services/language-selection.service';
+import { LanguageService } from '../../../services/language-selection.service';
 
-import { Language } from '../../models/language';
+import { Language } from '../../../models/language';
 
 @Component({
   selector: 'fw-language-selection',

@@ -8,12 +8,12 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class ModalService {
-  public isShowLogin: boolean = true;
+  public isShowLogin = true;
   public isShowModal$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
 
-  constructor(private authService:AuthService) {}
+  constructor(private authService: AuthService) {}
 
   public showModalComponents(): void {
     this.isShowLogin = false;
@@ -21,7 +21,7 @@ export class ModalService {
   }
 
   public hideModalComponents(): void {
-    this.isShowLogin = false;
+    this.isShowLogin = true;
     this.isShowModal$.next(false);
     this.authService.disAuth();
   }

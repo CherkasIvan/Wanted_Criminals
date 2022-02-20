@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'unknownProperty',
 })
 export class UnknownPropertyPipe implements PipeTransform {
-  transform(element: any, args?: any): string {
+  transform(element: string): string {
     return element || 'Unknown';
   }
 }
