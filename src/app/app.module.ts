@@ -69,11 +69,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      missingTranslationHandler: {
-        provide: MissingTranslationHandler,
-        useClass: MissingTranslationServiceService,
-      },
-      defaultLanguage: 'en',
     }),
   ],
   providers: [AuthGuard],
