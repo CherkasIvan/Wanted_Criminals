@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Language } from '../models/language';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class LanguageService {
   languages: Language[] = [
     {

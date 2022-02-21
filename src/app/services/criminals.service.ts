@@ -5,9 +5,7 @@ import { map, Observable, pipe } from 'rxjs';
 
 import { CriminalsResponse } from '../models/criminals';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class CriminalsService {
   constructor(private httpClient: HttpClient) {}
 

@@ -4,9 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { AuthService } from './auth.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ModalService {
   public isShowLogin = true;
   public isShowModal$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
