@@ -1,0 +1,14 @@
+<div [matMenuTriggerFor]="beforeMenu" class="lang-select-button">
+    <img [src]="imagePath" alt="">
+  </div>
+  
+  <mat-menu class="menu-items"
+            #beforeMenu="matMenu"
+            xPosition="before">
+    <div *ngFor="let item of languages"
+         (click)="selectLang(item.path, item.langCode)"
+         class="lang-item"
+         mat-menu-item>
+      <img [src]="item.path" alt="">  {{ item.lang }}
+    </div>
+  </mat-menu>

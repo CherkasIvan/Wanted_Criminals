@@ -1,7 +1,11 @@
 <div class="person">
   <div class="person_info">
     <div class="wrap">
-      <button class="wrap_button" (click)="openModal()">{{ show ? 'Login' : 'Logout' }}</button>
+      <button class="wrap_button" [ngSwitch]="isShowLogin" (click)="openModal()">
+        <ng-template ngSwitchCase="1">{{ 'auth.login' | translate }}</ng-template>
+        <ng-template ngSwitchCase="2">{{ 'auth.logout' | translate }}</ng-template>
+        <ng-template ngSwitchDefault>{{ 'auth.logout' | translate }}</ng-template>
+      </button>
     </div>
   </div>
 </div>

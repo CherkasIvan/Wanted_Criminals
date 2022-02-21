@@ -1,0 +1,61 @@
+export interface Criminals {
+id: string;
+additional_information: string;
+age_max: number;
+age_min: number;
+age_range: number;
+aliases: [];
+build: string;
+caution: string;
+complexion: string;
+coordinates: [];
+dates_of_birth_used: [];
+description: string;
+details: string;
+eyes: string;
+eyes_raw: string;
+field_offices: [];
+files: [];
+hair: string;
+hair_raw: string;
+height_max: number;
+height_min: number;
+images: [];
+languages: string;
+legat_names: string;
+locations: string;
+modified: string;
+nationality: string;
+ncic: string;
+occupations: string;
+path: string;
+person_classification: string;
+place_of_birth: string;
+possible_countries: string;
+possible_states: string;
+publication: string;
+race: string;
+race_raw: string;
+remarks: string;
+reward_max: number;
+reward_min: number;
+reward_text: string;
+scars_and_marks: string;
+sex: string;
+status: string;
+subjects: [];
+suspects: string;
+title: string;
+uid: string;
+url: string;
+warning_message: string;
+weight: string;
+weight_max: number;
+weight_min: number;
+}
+
+export interface CriminalsResponse{
+    total: number;
+    page: number;
+    items: Criminals[];
+}

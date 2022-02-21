@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { SettingsPageRoutingModule } from './settings-page-routing.module';
 
 import { SettingsPageComponent } from './settings-page.component';
+import { SidenavModule } from 'src/app/components/sidenav/sidenav.module';
 
 @NgModule({
-  declarations: [
-    SettingsPageComponent
-  ],
+  declarations: [SettingsPageComponent],
   imports: [
     CommonModule,
-    SettingsPageRoutingModule
-  ]
+    SettingsPageRoutingModule,
+    SidenavModule
+  ],
 })
-export class SettingsPageModule { }
+export class SettingsPageModule {}

@@ -9,20 +9,38 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   exports: [
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatSliderModule,
     MatMenuModule,
     MatFormFieldModule,
     MatIconModule,
+    MatCardModule,
     MatSidenavModule,
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
+    MatCheckboxModule,
     MatFormFieldModule,
+    MatExpansionModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
   ],
-  imports: [FormsModule,],
+  imports: [FormsModule],
 })
 export class AppMaterialModule {}

@@ -23,7 +23,6 @@ import { ModalService } from '../../services/modal.service';
 import { AuthService } from '../../services/auth.service';
 
 import { User } from '../../models/user';
-
 import { LoginModalModule } from './login-modal.module';
 
 @Component({

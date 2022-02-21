@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/app/components/dark-mode/dark-mode.component.scss"
+    ],
+    "names": [],
+    "file": "dark-mode.component.min.css"
+}

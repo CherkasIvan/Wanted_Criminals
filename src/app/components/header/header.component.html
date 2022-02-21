@@ -1,11 +1,14 @@
-<header class="header">
+<header class="header mat-app-background content">
   <div class="header_container">
     <div class="header_container_title">
-      <span>wanted criminals</span>
+      <span>{{ 'header.wanted' | translate }}</span>
     </div>
     <nav class="header_container_navigation">
       <span class="header_container_navigation_time">{{clock | async}}</span>
-      <fw-profile-selection *ngIf="isShowModal$ | async"></fw-profile-selection>
+
+      <div class="header_container_navigation_user_role">{{ authService.userData.role | translate  }}</div>
+      <fw-language-selection></fw-language-selection>
+      <fw-profile-selection></fw-profile-selection>
     </nav>
   </div>
 </header>

@@ -1,13 +1,39 @@
+@use '@angular/material'as mat;
+$wanted_criminals-primary: mat.define-palette(mat.$indigo-palette);
+$wanted_criminals-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$wanted_criminals-warn: mat.define-palette(mat.$red-palette);
+$wanted_criminals-theme: mat.define-light-theme((color: (primary: $wanted_criminals-primary,
+      accent: $wanted_criminals-accent,
+      warn: $wanted_criminals-warn,
+    )));
+@include mat.all-component-themes($wanted_criminals-theme);
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import '~normalize.css';
+@import "~@angular/material/theming";
 
 span,
 a,
-label {
+label,
+th,
+td {
   font-family: 'Fjalla One',
     sans-serif;
 }
 
-.custom-dialog-container .mat-dialog-container {
-  padding: 0 !important;
+.login_page_wrapper {
+  --text-color: #222;
+  --bkg-color: #fff;
+  --btn-txt-color: white;
+  --btn-bg-color: rgb(11, 88, 160);
+}
+
+.login_page_wrapper.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #252222;
+  --btn-txt-color: rgb(46, 43, 43);
+  --btn-bg-color: rgb(20, 211, 195);
+}
+
+.mat-dialog-container {
+  padding: 0;
 }

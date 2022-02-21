@@ -1,7 +1,5 @@
 .header {
-  backdrop-filter: blur(10px);
-  background: inherit;
-  backdrop-filter: blur(10px);
+  background: transparent;
   opacity: 1;
   position: fixed;
   top: 0;
@@ -26,14 +24,19 @@
     }
 
     &_navigation {
+      color: #FFF;
+      font-size: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       &_time {
-        margin-right: 1.5rem;
-        color: #FFF;
-        font-size: 1rem;
+        margin: 1.5rem;
+      }
+
+      &_user_role {
+        font-weight: bold;
+        text-transform: uppercase;
       }
     }
   }

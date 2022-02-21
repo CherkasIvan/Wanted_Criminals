@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { map, Observable, pipe } from 'rxjs';
+import { map, Observable, pipe, delay } from 'rxjs';
 
 import { User } from '../models/user';
 import { Response } from '../models/responses';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private isloggedIn: boolean = false;
-  private userData = {
+  public isloggedIn: boolean = false;
+  public userData = {
     email: '',
     password: '',
     role: '',
@@ -27,7 +27,9 @@ export class AuthService {
   }
 
   public disAuth(): void {
+    this.userData.role = '';
     localStorage.clear();
+    this.router.navigate(['/login-page']);
   }
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -47,7 +49,6 @@ export class AuthService {
           }
           return this.isAuth();
 
-          //Переделать логику разлогинивания
           if (
             inputValue.email != email ||
             inputValue.password != password ||
@@ -55,9 +56,8 @@ export class AuthService {
             !inputValue.password
           ) {
             this.isloggedIn = false;
-            console.log(this.isloggedIn);
+            return this.disAuth();
           }
-          return this.disAuth();
         });
         this.isloggedIn;
         return usersList;

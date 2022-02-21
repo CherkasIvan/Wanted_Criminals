@@ -1,0 +1,42 @@
+{
+  "Unknown": "Unknown",
+  "guest": "guest",
+  "admin": "admin",
+  "user": "user",
+  "header": {
+    "wanted": "wanted criminals"
+  },
+
+  "auth": {
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "sidenav": {
+    "menu": "Menu",
+    "home": "Home",
+    "wanted": "Wanted FBI",
+    "settings": "Settings"
+  },
+  "modal": {
+    "cancel": "Cancel",
+    "login": "Login",
+    "pmax": "Max length of this field is 16.",
+    "pmin": "Min length of this field is 8.",
+    "prequired": "Password is required.",
+    "password": "Enter your password:",
+    "emin": "Min length of this field is 8.",
+    "valid": "Please, enter valid email address.",
+    "erequired": "Email is required.",
+    "email": "Enter your E-mail:"
+  },
+  "card": {
+    "photo": "Photo",
+    "name": "Name: ",
+    "sex": "Sex: ",
+    "date": "Date of birth: ",
+    "weight_max": "Weight max: ",
+    "view": "View more",
+    "hide": "Hide information",
+    "description": "Description: "
+  }
+}

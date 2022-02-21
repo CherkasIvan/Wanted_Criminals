@@ -1,18 +1,14 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { MatSliderModule } from '@angular/material/slider';
-import {
-  RouterOutlet,
-  Router,
-  NavigationCancel,
-  NavigationStart,
-  NavigationEnd,
-  NavigationError,
-} from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 import { AnimationRoute } from './animations/animation-route';
+import { environment } from './models/environment';
 
 @Component({
   selector: 'app-root',
@@ -23,21 +19,15 @@ import { AnimationRoute } from './animations/animation-route';
 })
 export class AppComponent implements OnInit {
   public title: string = 'wanted_criminals';
-  public loading$: Observable<boolean> = of(false);
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private translateService: TranslateService
+  ) {}
 
-  ngOnInit() {
-    this.loading$ = this.router.events.pipe(
-      filter(
-        (e) =>
-          e instanceof NavigationStart ||
-          e instanceof NavigationEnd ||
-          e instanceof NavigationCancel ||
-          e instanceof NavigationError
-      ),
-      map((e) => e instanceof NavigationStart)
-    );
+  ngOnInit(): void {
+    this.translateService.use(environment.defaultLocale);
   }
 
   animationRoute(outlet: RouterOutlet) {

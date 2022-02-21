@@ -5,9 +5,7 @@ import { AuthService } from './auth.service';
 
 import { LoginModalComponent } from '../components/login-modal/login-modal.component';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ rovidedIn: 'root' })
 export class LoginService {
   constructor(private http: HttpClient) {}
 }

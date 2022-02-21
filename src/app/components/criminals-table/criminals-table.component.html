@@ -1,0 +1,61 @@
+<div class="mat-elevation-z8 data-table" *ngIf="(criminalsData$ | async) as criminalsData">
+  <mat-table [dataSource]="criminalsData.criminalsDS">
+
+    <ng-container matColumnDef="id" class="id">
+      <th mat-header-cell *matHeaderCellDef class="hideID">ID</th>
+      <td mat-cell *matCellDef="let element" class="hideID"> {{(element.id)}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Photo">
+      <th mat-header-cell *matHeaderCellDef class="data-table_topic">{{ 'card.photo' | translate }}</th>
+      <td mat-cell *matCellDef="let element"><img src="{{element.images[0].thumb}}" alt="Photo"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef class="data-table_topic">{{ 'card.name' | translate }}</th>
+      <td mat-cell *matCellDef="let element">
+        {{ 'card.name' | translate  }}{{element.aliases | unknownProperty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Sex">
+      <th mat-header-cell *matHeaderCellDef class="data-table_topic">{{ 'card.sex' | translate }}</th>
+      <td mat-cell *matCellDef="let element"> {{ 'card.sex' | translate }}{{element.sex | unknownProperty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date of birth">
+      <th mat-header-cell *matHeaderCellDef class="data-table_topic">{{ 'card.date' | translate }}</th>
+      <td mat-cell *matCellDef="let element">
+        {{ 'card.date' | translate }}{{element.dates_of_birth_used| unknownProperty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Max weight" class="data-table_topic">
+      <th mat-header-cell *matHeaderCellDef>{{ 'card.weight_max' | translate }}</th>
+      <td mat-cell *matCellDef="let element"> {{ 'card.weight_max' | translate }}{{element.weight_max| unknownProperty}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="View" class="data-table_topic">
+      <th mat-header-cell *matHeaderCellDef>{{ 'card.view' | translate }}</th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="viewMore()" class="viewMore action-button shadow animate blue">
+          <span *ngIf="!isViewMore" class="table-btn">{{ 'card.view' | translate }}</span>
+          <span *ngIf="isViewMore" class="table-btn"> {{ 'card.hide' | translate }}</span>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Description" class="data-table_topic" class="additional-content">
+      <th mat-header-cell *matHeaderCellDef [ngClass]="isViewMore ? 'show' : 'hide'">
+        {{ 'card.description' | translate }} </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="isViewMore ? 'show' : 'hide'">
+        {{ 'card.description' | translate }}{{element.description}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns" class="data-table_topic"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </mat-table>
+
+  <mat-paginator #paginator [showFirstLastButtons]="true" [pageSize]="criminalsData.size" [length]="criminalsData.total"
+    (page)="loadCriminalsPage($event)">
+  </mat-paginator>
+</div>

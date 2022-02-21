@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,QAAQ,AAAC,CACL,OAAO,CAAE,IAAI,CACb,UAAU,CAAE,KAAK,CACpB",
     "sources": [
         "../src/app/pages/settings-page/settings-page.component.scss"
     ],

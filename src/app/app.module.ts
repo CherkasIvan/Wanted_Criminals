@@ -2,7 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import {
+  MissingTranslationHandler,
+  TranslateLoader,
+  TranslateModule,
+} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 import { AppMaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,17 +26,26 @@ import { SidenavModule } from './components/sidenav/sidenav.module';
 import { ProfileSelectionModule } from './components/header/profile-selection/profile-selection.module';
 import { LoginModalModule } from './components/login-modal/login-modal.module';
 import { HeaderModule } from './components/header/header.module';
+import { CriminalsTableModule } from './components/criminals-table/criminals-table.module';
+import { LanguageSelectionModule } from './components/header/language-selection/language-selection.module';
 
-import { AppComponent } from './app.component';
+import { MissingTranslationServiceService } from './services/missing-translation-service.service';
 
 import { AuthGuard } from './guards/auth-guard/auth.guard';
 
+import { CrimialsEffects } from './redux/criminals/criminals.effects';
+import { appReducers } from './redux';
+
+import { AppComponent } from './app.component';
+
+export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
+  return new TranslateHttpLoader(http, './assets/locale/', '.json');
+}
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     AppRoutingModule,
     MainPageModule,
     SidenavModule,
@@ -34,10 +53,28 @@ import { AuthGuard } from './guards/auth-guard/auth.guard';
     ProfileSelectionModule,
     RouterModule,
     SettingsPageModule,
+    LanguageSelectionModule,
     HeaderModule,
     ContentPageModule,
     NotFoundPageModule,
+    CriminalsTableModule,
     AppMaterialModule,
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
+    EffectsModule.forRoot([CrimialsEffects]),
+    StoreModule.forRoot(appReducers),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      missingTranslationHandler: {
+        provide: MissingTranslationHandler,
+        useClass: MissingTranslationServiceService,
+      },
+      defaultLanguage: 'en',
+    }),
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
