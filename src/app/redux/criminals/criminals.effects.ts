@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { pipe, switchMap, map, catchError, of } from 'rxjs';
+import { switchMap, map, catchError, of } from 'rxjs';
 
 import { CriminalsService } from '../../services/criminals.service';
 
