@@ -35,6 +35,7 @@ export class LanguageSelectionComponent implements OnInit {
     const lang = localStorage.getItem('lang');
 
     forEach(this.languages, (language: any) => {
+      console.log(language);
       this.imagePath = isEqual(language.langCode, lang)
         ? (this.imagePath = language.path)
         : 'assets/header/header_menu_uk.svg';
