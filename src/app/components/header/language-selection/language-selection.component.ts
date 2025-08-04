@@ -37,7 +37,7 @@ export class LanguageSelectionComponent implements OnInit {
     forEach(this.languages, (language: any) => {
       this.imagePath = isEqual(language.langCode, lang)
         ? (this.imagePath = language.path)
-        : '../../../assets/header/header_menu_uk.svg';
+        : 'assets/header/header_menu_uk.svg';
     });
 
     this.translate.setDefaultLang(lang || 'en');

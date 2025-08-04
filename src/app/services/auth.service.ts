@@ -35,7 +35,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   public login(email: User, password: User): Observable<Response> {
-    let requestURL = '../../assets/users-auth.json';
+    let requestURL = 'assets/users-auth.json';
 
     return this.http.get<Response>(requestURL).pipe(
       map((data: any) => {

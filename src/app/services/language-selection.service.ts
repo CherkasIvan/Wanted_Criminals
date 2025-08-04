@@ -7,13 +7,13 @@ export class LanguageService {
   languages: Language[] = [
     {
       lang: 'English',
-      path: '../../assets/header/header_menu_uk.svg',
+      path: 'assets/header/header_menu_uk.svg',
       langId: 0,
       langCode: 'en',
     },
     {
       lang: 'Русский',
-      path: '../../assets/header/header_menu_ru.svg',
+      path: 'assets/header/header_menu_ru.svg',
       langId: 1,
       langCode: 'ru',
     },
