@@ -18,8 +18,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSnackBarModule } from '@angular/material/snack-bar'; // Добавьте этот импорт
 
 @NgModule({
+  imports: [FormsModule],
   exports: [
     MatProgressSpinnerModule,
     MatProgressBarModule,
@@ -40,7 +42,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatPaginatorModule,
     MatToolbarModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
   ],
-  imports: [FormsModule],
 })
 export class AppMaterialModule {}

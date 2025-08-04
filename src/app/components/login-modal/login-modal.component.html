@@ -1,28 +1,77 @@
-<div class="modal_container" mat-dialog-container>
+<div class="modal_container" mat-dialog-content>
+  <form
+    [formGroup]="profileForm"
+    (ngSubmit)="login()"
+    class="modal_container_contant"
+  >
+    <mat-form-field appearance="outline" class="full-width transparent-input">
+      <mat-label>{{ "modal.email" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        type="email"
+        placeholder="E-mail"
+        autocomplete="email"
+      />
+      <mat-icon matSuffix>mail_outline</mat-icon>
 
-  <form [formGroup]="profileForm" class="modal_container_contant" (ngSubmit)="login()" novalidate>
+      <mat-error *ngIf="f['email'].hasError('required')">
+        {{ "modal.erequired" | translate }}
+      </mat-error>
+      <mat-error *ngIf="f['email'].hasError('email')">
+        {{ "modal.valid" | translate }}
+      </mat-error>
+      <mat-error *ngIf="f['email'].hasError('minlength')">
+        {{ "modal.emin" | translate }}
+      </mat-error>
+    </mat-form-field>
 
-    <label for="email">{{'modal.email'|translate}}</label>
-    <input type="text" formControlName="email" class="modal_email" id="email" placeholder="E-mail" required
-      autocomplete="false">
-    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
-      <div *ngIf="f['email'].errors && f['email'].errors['required']">{{'modal.erequired'|translate}}</div>
-      <div *ngIf="f['email'].errors && f['email'].errors['email']">{{'modal.valid'|translate}}</div>
-      <div *ngIf="f['email'].errors && f['email'].errors['minLength']">{{'modal.emin'|translate}}</div>
+    <mat-form-field appearance="outline" class="full-width transparent-input">
+      <mat-label>{{ "modal.password" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      />
+      <mat-icon matSuffix>lock_outline</mat-icon>
+
+      <mat-error *ngIf="f['password'].hasError('required')">
+        {{ "modal.prequired" | translate }}
+      </mat-error>
+      <mat-error *ngIf="f['password'].hasError('minlength')">
+        {{ "modal.pmin" | translate }}
+      </mat-error>
+      <mat-error *ngIf="f['password'].hasError('maxlength')">
+        {{ "modal.pmax" | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="buttons_container" mat-dialog-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        class="buttons_container_login"
+        type="submit"
+        [disabled]="profileForm.invalid || isSubmitting"
+      >
+        <span *ngIf="!isSubmitting">{{ "modal.login" | translate }}</span>
+        <mat-spinner
+          *ngIf="isSubmitting"
+          diameter="24"
+          strokeWidth="2"
+        ></mat-spinner>
+      </button>
+
+      <button
+        mat-button
+        class="buttons_container_cansel"
+        (click)="closeModal()"
+        [disabled]="isSubmitting"
+      >
+        {{ "modal.cancel" | translate }}
+      </button>
     </div>
-
-    <label for="password">{{'modal.password'|translate}}</label>
-    <input type="password" formControlName="password" class="modal_password" id="password" placeholder="Password"
-      required autocomplete="false">
-    <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
-      <div *ngIf="f['password'].errors && f['password'].errors['required']">{{'modal.prequired'|translate}}</div>
-      <div *ngIf="f['password'].errors && f['password'].errors['minLength']">{{'modal.pmin'|translate}}</div>
-      <div *ngIf="f['password'].errors && f['password'].errors['maxLength']">{{'modal.pmax'|translate}}</div>
-    </div>
-
-    <div class="buttons_container">
-      <button class="buttons_container_login" type="submit" (ngSubmit)="login()"
-        [disabled]="!profileForm.valid">{{'modal.login'|translate}}</button>
-      <button [mat-dialog-close] class="buttons_container_cansel" (click)="closeModal()">{{'modal.cancel'|translate}}</button></div>
   </form>
 </div>

@@ -12,8 +12,6 @@
   z-index: 500000;
   border-radius: 25px;
 
-
-
   &_contant {
     color: #fff;
     font-size: 1rem;
@@ -26,7 +24,7 @@
 
     .modal_email,
     .modal_password {
-      padding: .3rem;
+      padding: 0.3rem;
       border: 1px solid white;
       border-radius: 5px;
     }
@@ -35,6 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: nowrap;
 
       &_login,
       &_cansel {
@@ -43,23 +42,23 @@
         border: 2px solid white;
         font-size: 0.8rem;
         min-width: 8vw;
-        margin: .5rem;
-        padding: .5rem .7rem;
-        transition: all .3s ease-in-out 0s;
+        margin: 0.5rem;
+        padding: 0.5rem 0.7rem;
+        transition: all 0.3s ease-in-out 0s;
       }
 
       &_login:hover {
         border: 1px solid #00ff5e;
         color: #00ff5e;
         transform: scale(1.2);
-        transition: all .3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
       }
 
       &_cansel:hover {
         border: 1px solid #ff0000;
         color: #ff0000;
         transform: scale(1.2);
-        transition: all .3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
       }
     }
   }
@@ -72,4 +71,150 @@
 ::ng-deep mat-dialog-container,
 .mat-dialog-container {
   padding: 0 !important;
+}
+
+.modal_container {
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+
+  .modal_container_contant {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.buttons_container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+
+  &_login {
+    flex: 1;
+  }
+
+  mat-spinner {
+    margin: 0 auto;
+  }
+}
+
+.modal_container {
+  background-color: rgba(0, 0, 0, 0.7); /* Прозрачный фон контейнера */
+}
+
+.transparent-input {
+  /* Стили для прозрачного фона */
+  .mat-form-field-flex {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Полупрозрачная граница */
+    border-radius: 4px;
+  }
+
+  /* Стили для текста */
+  .mat-input-element {
+    color: white; /* Белый текст при вводе */
+    caret-color: white; /* Белый курсор */
+
+    /* Серый текст для плейсхолдера */
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Серый текст когда поле пустое */
+    &:placeholder-shown {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  /* Стили для лейбла */
+  .mat-form-field-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .mat-icon {
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 10px;
+  }
+
+  &.mat-focused {
+    .mat-form-field-label {
+      color: white !important;
+    }
+
+    .mat-form-field-outline-thick {
+      color: white !important;
+    }
+
+    .mat-icon {
+      color: white;
+    }
+  }
+}
+
+.buttons_container_login {
+  background: linear-gradient(45deg, #2196f3, #21cbf3);
+  color: white !important;
+}
+
+.buttons_container_cansel {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Стили для прозрачного инпута */
+.transparent-input {
+  /* Прозрачный фон */
+  .mat-form-field-outline {
+    background-color: transparent !important;
+  }
+
+  /* Цвет текста */
+  .mat-input-element {
+    color: rgba(255, 255, 255, 0.7); /* Серый по умолчанию */
+    caret-color: white; /* Белый курсор */
+
+    /* Белый текст при вводе/фокусе */
+    &:focus,
+    &:not(:placeholder-shown) {
+      color: white !important;
+    }
+
+    /* Серый плейсхолдер */
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+  }
+
+  /* Стили при фокусе */
+  &.mat-focused {
+    /* Белая граница при фокусе */
+    .mat-form-field-outline-thick {
+      color: white !important;
+    }
+
+    /* Белая иконка при фокусе */
+    .mat-icon {
+      color: white !important;
+    }
+  }
+
+  /* Иконка всегда серая, пока не в фокусе */
+  .mat-icon {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .transparent-input {
+    transition: all 0.3s ease;
+
+    .mat-input-element,
+    .mat-icon,
+    .mat-form-field-outline {
+      transition: all 0.3s ease;
+    }
+  }
 }

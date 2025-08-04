@@ -6,24 +6,18 @@ import {
 } from '@angular/forms';
 import {
   Component,
-  EventEmitter,
-  Output,
   OnInit,
   OnDestroy,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
 
 import { Subscription } from 'rxjs';
 
-import { ModalService } from '../../services/modal.service';
 import { AuthService } from '../../services/auth.service';
 
 import { User } from '../../models/user';
-import { LoginModalModule } from './login-modal.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'fw-login-modal',
@@ -35,6 +29,8 @@ export class LoginModalComponent implements OnInit, OnDestroy {
   public users: User[] = [];
   public loginAuthSub: Subscription = new Subscription();
   public profileForm!: FormGroup;
+  public isSubmitting = false;
+  public hidePassword = true;
 
   public get f() {
     return this.profileForm.controls;
@@ -47,7 +43,7 @@ export class LoginModalComponent implements OnInit, OnDestroy {
         Validators.email,
         Validators.minLength(6),
       ]),
-      password: new FormControl(null, [
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(16),
@@ -59,12 +55,15 @@ export class LoginModalComponent implements OnInit, OnDestroy {
     public dialogRef: MatDialogRef<LoginModalComponent>,
     public authService: AuthService,
     private fb: FormBuilder,
-    private modalService: ModalService,
-    private router: Router
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.profileForm = this.initializeForm();
+
+    this.profileForm.valueChanges.subscribe((values) => {
+      console.log('Form values changed:', values);
+    });
   }
 
   public closeModal(): void {
@@ -72,23 +71,31 @@ export class LoginModalComponent implements OnInit, OnDestroy {
   }
 
   public login(): void {
+    if (this.profileForm.invalid) return;
+
+    this.isSubmitting = true;
     this.profileForm.disable();
-    const user: User = {
-      email: this.profileForm.value.email,
-      password: this.profileForm.value.password,
-      role: this.profileForm.value.role,
-    };
 
     this.loginAuthSub = this.authService
       .login(this.profileForm.value.email, this.profileForm.value.password)
       .subscribe(
         () => {
+          this.isSubmitting = false;
           this.dialogRef.close();
         },
-
         (error) => {
-          console.warn(error);
+          console.error('Login error:', error);
+          this.isSubmitting = false;
           this.profileForm.enable();
+
+          this.snackBar.open(
+            error.message || 'Login failed. Please try again.',
+            'Close',
+            {
+              duration: 5000,
+              panelClass: ['error-snackbar'],
+            }
+          );
         }
       );
   }
